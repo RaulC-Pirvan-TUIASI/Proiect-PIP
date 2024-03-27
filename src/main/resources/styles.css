@@ -14,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 90vh;
+    overflow-x: hidden;
 }
 
 header {
@@ -93,7 +94,7 @@ input[type="file"] {
 }
 
 #imagePreview {
-    margin-top: -80px;
+    margin-top: 0px;
     margin-bottom: 20px;
     position: relative;
     text-align: center;
@@ -103,4 +104,16 @@ input[type="file"] {
 #preview {
     max-width: 100%;
     max-height: 300px;
+}
+
+/* CSS for the message box */
+.message-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    width: 300px; /* Adjust width as needed */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
