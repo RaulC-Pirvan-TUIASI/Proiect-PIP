@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrare OpenAI 2.0</title>
+    <title>Integrare OpenAI</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,8 +15,9 @@
     <section class="upload" id="uploadSection">
         <div class="drop-area" id="dropArea">
             <h2 id="dropAreaText">Drag & Drop Files Here</h2> <!-- Modified: Added id to this element -->
+            <p id="orText">Or</p>
             <label for="file-upload" class="custom-file-upload">
-                <i class="fa fa-cloud-upload"></i> Choose File
+                <i class="fa fa-cloud-upload">Choose File</i>
             </label>
             <input id="file-upload" type="file" name="file" onchange="previewImage(event)" />
             <div id="imagePreview" class="hidden">
@@ -31,9 +32,5 @@
     <p>Grupa 1301B</p>
 </footer>
 <script src="script.js"></script> <!-- Link to your JavaScript file for handling image preview -->
-<script>
-    // Update current year
-    document.getElementById("currentYear").innerText = new Date().getFullYear();
-</script>
 </body>
 </html>
