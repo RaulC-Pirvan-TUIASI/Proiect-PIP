@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website</title>
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom CSS for the file upload -->
+</head>
+<body>
+<header>
+    <h1>Integrare OpenAI</h1>
+</header>
+<main>
+    <!-- Drag and Drop File Upload Section -->
+    <section class="upload" id="uploadSection">
+        <div class="drop-area" id="dropArea">
+            <h2 id="dropAreaText">Drag & Drop Files Here</h2> <!-- Modified: Added id to this element -->
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Choose File
+            </label>
+            <input id="file-upload" type="file" name="file" onchange="previewImage(event)" />
+            <div id="imagePreview" class="hidden">
+                <img id="preview" src="#" alt="Preview" />
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; <span id="currentYear"></span> Integrare OpenAI. Toate drepturile sunt rezervate.</p>
+    <p>Proiect realizat de Coșa Andrei-Valeriu, Maftei Marius-Vasile, Valazza Matteo, Mîrț Davide și Pîrvan Raul-Costin</p>
+    <p>Grupa 1301B</p>
+</footer>
+<script src="/JS/script.js"></script> <!-- Link to your JavaScript file for handling image preview -->
+<script>
+    // Update current year
+    document.getElementById("currentYear").innerText = new Date().getFullYear();
+</script>
+</body>
+</html>

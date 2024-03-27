@@ -1,0 +1,92 @@
+/* Existing styles */
+:root {
+    --primary-color: #222831;
+    --secondary-color: #31363F;
+    --accent-color: #76ABAE;
+    --text-color: #EEEEEE;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+main {
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* New styles for file upload section */
+.upload {
+    margin-top: 20px; /* Add some space between header and upload section */
+}
+
+.drop-area {
+    border: 2px dashed var(--secondary-color);
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    width: 300px;
+    margin: 0 auto; /* Center the drop area */
+}
+
+.drop-area h2 {
+    margin-top: 0;
+}
+
+.custom-file-upload {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    width: 150px;
+    margin: 20px auto; /* Center the file upload button */
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#imagePreview {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#preview {
+    max-width: 100%;
+    max-height: 300px;
+}
