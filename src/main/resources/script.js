@@ -1,3 +1,5 @@
+var uploadCount = 0;
+
 function previewImage(event) {
     var image = document.getElementById('preview');
     var imagePreview = document.getElementById('imagePreview');
@@ -5,8 +7,10 @@ function previewImage(event) {
     var orText = document.getElementById('orText');
     var chooseFileButton = document.querySelector('.custom-file-upload'); // Select the button by class
 
+    // Increment the upload count
+    uploadCount++;
+
     // Hide the drop area text and choose file button
-    // Test
     dropAreaText.style.display = 'none';
     orText.style.display = 'none';
     chooseFileButton.style.display = 'none';
@@ -22,15 +26,13 @@ function previewImage(event) {
     imagePreview.classList.remove('hidden');
 
     dropArea.style.height = '300px';
-
     dropArea.classList.add('uploaded');
 
     // Adjust the height of the drop area (optional)
     document.getElementById('dropArea').style.height = '300px'; // Adjust the height as needed
-
-    // Update current year
-    document.getElementById("currentYear").innerText = new Date().getFullYear();
 }
+
+document.getElementById("currentYear").innerText = new Date().getFullYear();
 
 function handleDrop(event) {
     event.preventDefault();
@@ -45,6 +47,11 @@ function handleDrop(event) {
 function handleDragOver(event) {
     event.preventDefault();
     event.stopPropagation();
+}
+
+function showMessage(message) {
+    var messageBox = document.getElementById('messageBox');
+    messageBox.textContent = message;
 }
 
 var dropArea = document.getElementById('dropArea');
