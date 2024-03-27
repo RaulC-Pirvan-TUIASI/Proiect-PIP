@@ -5,6 +5,7 @@ function previewImage(event) {
     var chooseFileButton = document.querySelector('.custom-file-upload'); // Select the button by class
 
     // Hide the drop area text and choose file button
+    // Test
     dropAreaText.style.display = 'none';
     chooseFileButton.style.display = 'none';
 
