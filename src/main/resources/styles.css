@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 header {
@@ -42,10 +42,13 @@ footer {
     width: 100%;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
-/*Test*/
+
 /* New styles for file upload section */
 .upload {
-    margin-top: 0px; /* Add some space between header and upload section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
 }
 
 .drop-area {
@@ -56,24 +59,29 @@ footer {
     background-color: var(--secondary-color);
     color: var(--text-color);
     width: 300px;
-    margin: 0 auto; /* Center the drop area */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: margin-top 0.3s ease;
+    margin-top: 50px;
 }
 
 .drop-area h2 {
     margin-top: 0;
 }
 
+.drop-area p {
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
 .custom-file-upload {
     display: block;
-    margin-top: 20px;
+    margin: 20px auto; /* Center the file upload button */
     padding: 10px 20px;
     cursor: pointer;
     background-color: var(--accent-color);
     color: var(--text-color);
     border-radius: 4px;
     width: 150px;
-    margin: 20px auto; /* Center the file upload button */
 }
 
 input[type="file"] {
@@ -85,8 +93,11 @@ input[type="file"] {
 }
 
 #imagePreview {
-    margin-top: 20px;
+    margin-top: -80px;
+    margin-bottom: 20px;
+    position: relative;
     text-align: center;
+    z-index: 1;
 }
 
 #preview {
