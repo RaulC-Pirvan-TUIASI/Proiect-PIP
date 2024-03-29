@@ -13,17 +13,20 @@
 <main>
     <!-- Drag and Drop File Upload Section -->
     <section class="upload" id="uploadSection">
-        <div class="drop-area" id="dropArea">
-            <h2 id="dropAreaText">Drag & Drop Files Here</h2> <!-- Modified: Added id to this element -->
-            <p id="orText">Or</p>
-            <label for="file-upload" class="custom-file-upload">
-                <i class="fa fa-cloud-upload">Choose File</i>
-            </label>
-            <input id="file-upload" type="file" name="file" onchange="previewImage(event)" />
-            <div id="imagePreview" class="hidden">
-                <img id="preview" src="#" alt="Preview" />
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="drop-area" id="dropArea">
+                <h2 id="dropAreaText">Drag & Drop Files Here</h2> <!-- Modified: Added id to this element -->
+                <p id="orText">Or</p>
+                <label for="file-upload" class="custom-file-upload">
+                    <i class="fa fa-cloud-upload">Choose File</i>
+                </label>
+                <input id="file-upload" type="file" name="file" onchange="previewImage(event)" />
+                <div id="imagePreview" class="hidden">
+                    <img id="preview" src="#" alt="Preview" />
+                </div>
             </div>
-        </div>
+            <button type="submit">Upload</button>
+        </form>
     </section>
     <div id="messageBox" class="upload-box" contenteditable="false"></div>
 </main>

@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e8fcbbb-3e38-49a7-a391-dd385689560f" name="Changes" comment="teapa">
-      <change afterPath="$PROJECT_DIR$/src/main/java/server.java" afterDir="false" />
+    <list default="true" id="0e8fcbbb-3e38-49a7-a391-dd385689560f" name="Changes" comment="adaugat grile de Test">
+      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helloWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java_server/server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +33,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -52,14 +59,35 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "backEND",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "F:/WIP/Javra/PIP_proiect",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="C:\Users\cosaa\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+        <option name="reportGuid" value="53b74d07-9fc3-45c9-8e72-1b58de6dd7ab" />
+        <option name="reportName" value="PIP_proiect/qodana/2024-03-29" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\cosaa\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="53b74d07-9fc3-45c9-8e72-1b58de6dd7ab" reportId="PIP_proiect/qodana/2024-03-29" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="main.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/PIP_proiect/src/main/resources/main.html" useBuiltInWebServerPort="true">
       <method v="2" />
@@ -73,8 +101,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-20.0.2-azul-20.0.2-4caba194b151-eb49e076" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
       </set>
     </attachedChunks>
   </component>
@@ -90,7 +118,9 @@
       <workItem from="1711534766877" duration="100000" />
       <workItem from="1711535023551" duration="191000" />
       <workItem from="1711535459253" duration="611000" />
-      <workItem from="1711536081080" duration="2201000" />
+      <workItem from="1711536081080" duration="2357000" />
+      <workItem from="1711538490920" duration="734000" />
+      <workItem from="1711702102226" duration="2040000" />
     </task>
     <task id="LOCAL-00001" summary="teapa">
       <option name="closed" value="true" />
@@ -100,7 +130,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711535580947</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adaugat backEND">
+      <option name="closed" value="true" />
+      <created>1711538343669</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711538343669</updated>
+    </task>
+    <task id="LOCAL-00003" summary="adaugat grile de Test">
+      <option name="closed" value="true" />
+      <created>1711703045724</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711703045724</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +177,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="teapa" />
-    <option name="LAST_COMMIT_MESSAGE" value="teapa" />
+    <MESSAGE value="adaugat backEND" />
+    <MESSAGE value="adaugat grile de Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="adaugat grile de Test" />
   </component>
 </project>

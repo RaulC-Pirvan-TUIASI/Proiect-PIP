@@ -34,15 +34,37 @@ function previewImage(event) {
 
 document.getElementById("currentYear").innerText = new Date().getFullYear();
 
+// Function to handle file upload when a file is dropped
 function handleDrop(event) {
     event.preventDefault();
     event.stopPropagation();
 
     var files = event.dataTransfer.files;
     if (files.length > 0) {
-        previewImage({target: {files: files}});
+        // Call the previewImage function to display the dropped image
+        previewImage({ target: { files: files } });
+
+        // Use AJAX to upload the file to the server
+        var formData = new FormData();
+        formData.append('file', files[0]);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/upload', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                showMessage('File uploaded successfully');
+            } else {
+                showMessage('File upload failed');
+            }
+        };
+        xhr.send(formData);
     }
 }
+
+// Attach dragover and drop event listeners to the drop area
+var dropArea = document.getElementById('dropArea');
+dropArea.addEventListener('dragover', handleDragOver);
+dropArea.addEventListener('drop', handleDrop);
 
 function handleDragOver(event) {
     event.preventDefault();
