@@ -16,14 +16,14 @@ public class javaOCR
         Tesseract tsr = new Tesseract();
         try {
 
-            tsr.setDatapath("D:/Tess4J/tessdata");
-            tsr.setLanguage("ron");
+            tsr.setDatapath("D:/Proiect-PIP/Tess4J/tessdata");
             tsr.setLanguage("eng");
+            tsr.setLanguage("ron");
 
             // the path of your tess data folder
             // inside the extracted file
             String text;
-            text = tsr.doOCR(new File("D:/Proiect-PIP/src/main/java/image.png"));
+            text = tsr.doOCR(new File("D:/Proiect-PIP/src/main/java/img_medicina.png"));
 
             // path of your image file
             System.out.print(text);
