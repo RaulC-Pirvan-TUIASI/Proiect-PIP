@@ -11,9 +11,8 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
+    flex-direction: column; /* Ensure vertical layout */
+    min-height: 100vh; /* Ensure full viewport height */
     overflow-x: hidden;
 }
 
@@ -22,14 +21,14 @@ header {
     color: var(--text-color);
     text-align: center;
     padding: 20px;
-    position: absolute;
-    top: 0;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 main {
+    flex-grow: 1; /* Grow to fill remaining space */
     text-align: center;
+    font-family: Helvetica, sans-serif;
     margin-top: 50px;
 }
 
@@ -38,8 +37,6 @@ footer {
     color: var(--text-color);
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -50,6 +47,8 @@ footer {
     justify-content: center;
     align-items: center;
     height: 100px;
+    margin-top: 150px;
+    margin-bottom: -150px;
 }
 
 .drop-area {
@@ -70,14 +69,15 @@ footer {
 }
 
 .drop-area p {
-    margin-top: -10px;
-    margin-bottom: -10px;
+    margin-top: -5px;
+    margin-bottom: 10px;
 }
 
 .custom-file-upload {
     display: block;
     margin: 20px auto; /* Center the file upload button */
     padding: 10px 20px;
+    margin-bottom: 5px;
     cursor: pointer;
     background-color: var(--accent-color);
     color: var(--text-color);
@@ -101,19 +101,74 @@ input[type="file"] {
     z-index: 1;
 }
 
-#preview {
+#imagePreview img {
     max-width: 100%;
     max-height: 300px;
 }
 
+#generate-button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#generate-button:hover {
+    background-color: #4C6F72;
+}
+
 /* CSS for the message box */
 .message-box {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    background-color: transparent; /* Set background color to transparent */
+    border: none;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 100px;
     width: 300px; /* Adjust width as needed */
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+.chat-box {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px;
+    margin-top: 400px; /* Adjust margin-top to push chat box above the footer */
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 800px; /* Adjust width as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chat-content {
+    margin-bottom: 10px;
+    max-height: 300px; /* Set max height for content */
+    overflow-y: auto; /* Add scrollbar when content exceeds max height */
+}
+
+.message-input {
+    width: calc(100%); /* Adjust width for padding */
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    margin-top: -10px;
+    resize: none; /* Disable resizing */
+}
+
+/* Show the chat box */
+.show-chat {
+    max-height: calc(100vh - 420px); /* Adjust the maximum height as needed */
+    overflow-y: auto; /* Add scrollbar when content exceeds max height */
 }

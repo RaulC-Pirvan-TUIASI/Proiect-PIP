@@ -57,3 +57,41 @@ function showMessage(message) {
 var dropArea = document.getElementById('dropArea');
 dropArea.addEventListener('dragover', handleDragOver);
 dropArea.addEventListener('drop', handleDrop);
+
+document.addEventListener("DOMContentLoaded", function () {
+    var generateButton = document.getElementById("generate-button");
+    var messageInput = document.getElementById("messageInput");
+
+    generateButton.addEventListener("click", function () {
+        // Create a FormData object
+        var formData = new FormData();
+        // Append the uploaded file to the FormData object
+        formData.append('file', document.getElementById('file-upload').files[0]);
+
+        // Send the FormData object to the server using Fetch API
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (response.ok) {
+                    // Handle successful upload
+                    return response.text();
+                } else {
+                    // Handle upload errors
+                    throw new Error('Upload failed');
+                }
+            })
+            .then(data => {
+                // Handle server response
+                console.log(data);
+            })
+            .catch(error => {
+                // Handle network errors
+                console.error('Error:', error);
+            });
+    });
+
+    // Disable message input
+    messageInput.disabled = true;
+});
