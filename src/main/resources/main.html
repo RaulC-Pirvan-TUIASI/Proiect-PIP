@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrare OpenAI 2.0</title>
+    <title>Integrare OpenAI</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,26 +14,30 @@
     <!-- Drag and Drop File Upload Section -->
     <section class="upload" id="uploadSection">
         <div class="drop-area" id="dropArea">
-            <h2 id="dropAreaText">Drag & Drop Files Here</h2> <!-- Modified: Added id to this element -->
+            <h2 id="dropAreaText">Drag & Drop Files Here</h2>
+            <p id="orText">Or</p>
             <label for="file-upload" class="custom-file-upload">
-                <i class="fa fa-cloud-upload"></i> Choose File
+                <i class="fa fa-cloud-upload">Choose File</i>
             </label>
             <input id="file-upload" type="file" name="file" onchange="previewImage(event)" />
             <div id="imagePreview" class="hidden">
                 <img id="preview" src="#" alt="Preview" />
+                <button id="generate-button">Generate</button>
             </div>
         </div>
+        
     </section>
+    <div id="messageBox" class="upload-box" contenteditable="false"></div>
+    <div id="chatBox" class="chat-box">
+        <div id="chatContent" class="chat-content"></div>
+        <textarea id="messageInput" class="message-input" placeholder="What can I help you with today?"></textarea>
+    </div>
 </main>
 <footer>
     <p>&copy; <span id="currentYear"></span> Integrare OpenAI. Toate drepturile sunt rezervate.</p>
     <p>Proiect realizat de Coșa Andrei-Valeriu, Maftei Marius-Vasile, Valazza Matteo, Mîrț Davide și Pîrvan Raul-Costin</p>
     <p>Grupa 1301B</p>
 </footer>
-<script src="script.js"></script> <!-- Link to your JavaScript file for handling image preview -->
-<script>
-    // Update current year
-    document.getElementById("currentYear").innerText = new Date().getFullYear();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
