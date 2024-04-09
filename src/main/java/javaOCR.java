@@ -1,39 +1,62 @@
-
+/*
+* Maftei Marius-Vasile
+* 09.04.2024
+* Proiect PIP
+*/
 
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
-
 import java.io.File;
+import java.util.List;
 
-/**
- * Hello world!
- *
- */
 public class javaOCR
 {
-    javaOCR()
-    {
-        Tesseract tsr = new Tesseract();
+    // Function to perform OCR on all image files in a directory
+    public void performOCRForDirectory(String directoryPath) {
+
+        // Initialize DirectorySearch to list image files in the specified directory
+        DirectorySearch directorySearch = new DirectorySearch(directoryPath);
+        List<File> imageFiles = directorySearch.listImageFiles();
+
+        // Initialize Tesseract OCR engine
+        Tesseract fileToConvert = new Tesseract();
+
+        fileToConvert.setDatapath("D:/Proiect-PIP/Tess4J/tessdata");
+        fileToConvert.setLanguage("eng+ron");
+
+        // Process each image file
+        for (File imageFile : imageFiles) {
+            try {
+                // Perform OCR on the image file
+                String ocrResult = fileToConvert.doOCR(imageFile);
+                System.out.println("OCR Result for " + imageFile.getName() + ":\n" + ocrResult);
+            } catch (TesseractException e) {
+                System.err.println("Error performing OCR on file: " + imageFile.getName());
+                e.printStackTrace();
+            }
+        }
+
+        /*
+    // Function to perform OCR on an image or PDF file
+    public String performOCR(File file) throws TesseractException {
+        Tesseract fileToConvert = new Tesseract();
         try {
-
-            tsr.setDatapath("D:/Proiect-PIP/Tess4J/tessdata");
-            tsr.setLanguage("eng");
-            tsr.setLanguage("ron");
-
             // the path of your tess data folder
             // inside the extracted file
-            String text;
-            text = tsr.doOCR(new File("D:/Proiect-PIP/src/main/java/img_medicina.png"));
+            fileToConvert.setDatapath("D:/Proiect-PIP/Tess4J/tessdata");
+            fileToConvert.setLanguage("eng");
+            fileToConvert.setLanguage("ron");
 
-            // path of your image file
-            System.out.print(text);
-        }
-        catch (TesseractException e) {
+
+            String text;
+            text = fileToConvert.doOCR(new File("D:/Proiect-PIP/src/main/java/img_medicina.png"));
+
+            return text;
+        } catch (TesseractException e) {
             e.printStackTrace();
         }
     }
-    public static void main( String[] args ){
+    */
+    }
 
-        javaOCR jOCR = new javaOCR();
-  }
 }
