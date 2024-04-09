@@ -10,7 +10,7 @@ import java.time.Instant;
 
 public class Server {
     private static final String WEB_ROOT = "F:\\WIP\\Javra\\PIPpr\\Proiect-PIP\\src\\main\\resources";
-    private static final String UPLOADED_PHOTOS_DIR = "/path/to/your/uploaded/photos/";
+    private static final String UPLOADED_PHOTOS_DIR = "F:\\WIP\\Javra\\PIPpr\\Proiect-PIP\\pozici\\";
 
     static class RootHandler implements HttpHandler {
         @Override
@@ -144,7 +144,7 @@ public class Server {
 
                 // Generate a unique file name for the uploaded photo
                 String filename = generateUniqueFileName("uploaded_photos", "png");
-                filename="teapa.png";
+                //filename="teapa.png";
 
                 try {
                     // Write the received data to the specified file
@@ -172,7 +172,7 @@ public class Server {
         // Generate a unique file name for the uploaded photo
         private String generateUniqueFileName(String directory, String extension) {
             String timestamp = Instant.now().toString().replace(":", "-");
-            return directory + File.separator + "photo_" + timestamp + "." + extension;
+            return UPLOADED_PHOTOS_DIR + "photo_" + timestamp + "." + extension;
         }
     }
 
