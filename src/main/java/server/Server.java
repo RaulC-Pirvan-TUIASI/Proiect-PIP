@@ -9,19 +9,25 @@ import java.nio.file.Paths;
 import java.time.Instant;
 
 public class Server {
+    private static final String WEB_ROOT = "F:\\WIP\\Javra\\PIPpr\\Proiect-PIP\\src\\main\\resources";
+    private static final String UPLOADED_PHOTOS_DIR = "/path/to/your/uploaded/photos/";
+
     static class RootHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             String requestMethod = exchange.getRequestMethod();
             if (requestMethod.equalsIgnoreCase("GET")) {
-                String uri = exchange.getRequestURI().toString();
-                String filePath = "./src/main/resources" + uri;
+                String uri = exchange.getRequestURI().toString();  //what should happen here ???
+                uri=uri.replace('/','\\');
+                System.out.println(uri + " <<<ce avem noi aici");
+                String filePath = WEB_ROOT + uri;
+                //String filePath = WEB_ROOT + "\\index.html";
                 File file = new File(filePath);
                 if (file.exists() && !file.isDirectory()) {
-                    System.out.println("Request for file: " + filePath);
+                    System.out.println("Request for file: " + uri);
                     serveFile(exchange, file);
                 } else {
-                    System.out.println("File not found: " + filePath);
+                    System.out.println("File not found: " + uri);
                     serve404(exchange);
                 }
             } else {
@@ -53,15 +59,55 @@ public class Server {
     static String getContentType(File file) {
         String contentType = "text/plain";
         String fileName = file.getName();
-        if (fileName.endsWith(".html") || fileName.endsWith(".htm")) {
+        if(fileName.endsWith(".imp"))
+        {
+            System.out.println(fileName);
+        }
+        else if (fileName.endsWith(".html") || fileName.endsWith(".htm") || fileName.startsWith("index")) {
+            System.out.println(fileName);
             contentType = "text/html";
         } else if (fileName.endsWith(".css")) {
+            System.out.println("CSS");
             contentType = "text/css";
         } else if (fileName.endsWith(".js")) {
-            contentType = "text/javascript";
+            contentType = "application/javascript";
         }
         return contentType;
     }
+
+    static byte[] removeHeaders(byte[] data) {
+        // Find the index where the header ends
+        int headerEndIndex = findHeaderEndIndex(data);
+
+        // If headerEndIndex is -1, indicating the header end sequence wasn't found, return the original data
+        if (headerEndIndex == -1) {
+            return data;
+        }
+
+        // Calculate the length of the content after the header
+        int contentLength = data.length - (headerEndIndex + 4); // 4 represents the length of "\r\n\r\n"
+
+        // Create a new byte array to hold the content after the header
+        byte[] content = new byte[contentLength];
+
+        // Copy the content after the header to the new byte array
+        System.arraycopy(data, headerEndIndex + 4, content, 0, contentLength);
+
+        return content;
+    }
+
+    static int findHeaderEndIndex(byte[] data) {
+        // Iterate through the byte array looking for the "\r\n\r\n" sequence
+        for (int i = 0; i < data.length - 3; i++) {
+            if (data[i] == '\r' && data[i + 1] == '\n' && data[i + 2] == '\r' && data[i + 3] == '\n') {
+                // Return the index where the sequence begins
+                return i;
+            }
+        }
+        // If the sequence isn't found, return -1
+        return -1;
+    }
+
 
     static class UploadHandler implements HttpHandler {
         @Override
@@ -92,13 +138,17 @@ public class Server {
 
                 // Convert the output stream to byte array
                 byte[] data = outputStream.toByteArray();
-                System.out.println("Received data length: " + data.length);
+                System.out.println("Received data length: " + data.length );
+                data=removeHeaders(data);
+
 
                 // Generate a unique file name for the uploaded photo
                 String filename = generateUniqueFileName("uploaded_photos", "png");
+                filename="teapa.png";
 
                 try {
                     // Write the received data to the specified file
+
                     Files.write(Paths.get(filename), data);
                     System.out.println("Photo saved successfully: " + filename);
 
