@@ -3,9 +3,10 @@ import java.util.List;
 
 public class mainTEST {
 
-    public static void main(String[] args) {
-        String directoryPath = "D:/Proiect-PIP/src/main/java/images";
+    public static void main(String[] args) throws Exception
+    {
+        String calea = "H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici\\grila.png";
         javaOCR ocrProcessor = new javaOCR();
-        ocrProcessor.performOCRForDirectory(directoryPath);
+        System.out.println(ocrProcessor.performOCR(new File(calea)));
     }
 }
