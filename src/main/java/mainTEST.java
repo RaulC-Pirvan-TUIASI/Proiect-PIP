@@ -1,5 +1,6 @@
+import Aplicatie.javaOCR;
+
 import java.io.File;
-import java.util.List;
 
 public class mainTEST {
 
