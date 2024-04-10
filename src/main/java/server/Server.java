@@ -11,7 +11,7 @@ import java.time.Instant;
 public class Server {
 
     private static final String WEB_ROOT = "src/main/resources";
-    private static final String UPLOADED_PHOTOS_DIR = "photos/";
+    private static final String UPLOADED_PHOTOS_DIR = "pozici/";
 
     static class RootHandler implements HttpHandler {
         @Override
