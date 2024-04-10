@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import java.time.Instant;
 
 public class Server {
-    private static final String WEB_ROOT = "F:\\WIP\\Javra\\PIPpr\\Proiect-PIP\\src\\main\\resources";
-    private static final String UPLOADED_PHOTOS_DIR = "F:\\WIP\\Javra\\PIPpr\\Proiect-PIP\\pozici\\";
+    private static final String WEB_ROOT = "src/main/resources";
+    private static final String UPLOADED_PHOTOS_DIR = "photos/";
 
     static class RootHandler implements HttpHandler {
         @Override
