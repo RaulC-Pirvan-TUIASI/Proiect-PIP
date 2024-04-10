@@ -1,12 +1,14 @@
 package server;
 
 import com.sun.net.httpserver.*;
-
+import Aplicatie.*;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Instant;
+
+import static Aplicatie.Gpt.mainulet;
 
 public class Server {
 
@@ -151,6 +153,11 @@ public class Server {
                     // Write the received data to the specified file
 
                     Files.write(Paths.get(filename), data);
+
+
+                    filename=filename+"H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici";
+                    filename=filename.replace('/','\\');
+                    mainulet(filename);
                     System.out.println("Photo saved successfully: " + filename);
 
                     // Send response to indicate successful upload
@@ -164,6 +171,8 @@ public class Server {
                     // Log any exceptions that occur during file writing
                     System.err.println("Error saving photo: " + e.getMessage());
                     serve500(exchange);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
             } else {
                 serve404(exchange);

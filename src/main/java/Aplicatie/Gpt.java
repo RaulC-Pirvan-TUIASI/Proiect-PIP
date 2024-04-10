@@ -67,13 +67,12 @@ public class Gpt {
         HttpResponse<String> response = request(q);
         return content(response);
     }
-    public static void main(String[] args) throws Exception {
-        String calea = "H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici\\grila.png";
+    public static void mainulet(String imagine) throws Exception {
+        //String calea = "H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici\\grila.png";
         javaOCR ocrProcessor = new javaOCR();
-        String q2=ocrProcessor.performOCR(new File(calea));
+        String q2=ocrProcessor.performOCR(new File(imagine));
 
-        String q="Which is the Capital of Italy?\n"
-                + "\nRome;\nLondon\nBarcelona\nBucharest.\n";
+        //String q="Which is the Capital of Italy?\n" + "\nRome;\nLondon\nBarcelona\nBucharest.\n";
         //String Q2 = createQuestion();
         System.out.println(q2);
         System.out.println(answer(q2));
