@@ -96,6 +96,15 @@ public class Server {
         // Copy the content after the header to the new byte array
         System.arraycopy(data, headerEndIndex + 4, content, 0, contentLength);
 
+        // Check if there is an ending header starting with 0D 0A 2D 2D
+        int endHeaderIndex = findEndHeaderIndex(content);
+        if (endHeaderIndex != -1) {
+            // Trim the content array to exclude the ending header
+            byte[] trimmedContent = new byte[endHeaderIndex];
+            System.arraycopy(content, 0, trimmedContent, 0, endHeaderIndex);
+            return trimmedContent;
+        }
+
         return content;
     }
 
@@ -110,6 +119,19 @@ public class Server {
         // If the sequence isn't found, return -1
         return -1;
     }
+
+    static int findEndHeaderIndex(byte[] data) {
+        // Iterate through the byte array looking for the end header sequence "0D 0A 2D 2D"
+        for (int i = 0; i < data.length - 3; i++) {
+            if (data[i] == 0x0D && data[i + 1] == 0x0A && data[i + 2] == 0x2D && data[i + 3] == 0x2D) {
+                // Return the index where the sequence begins
+                return i;
+            }
+        }
+        // If the sequence isn't found, return -1
+        return -1;
+    }
+
 
 
     static class UploadHandler implements HttpHandler {
@@ -154,18 +176,36 @@ public class Server {
 
                     Files.write(Paths.get(filename), data);
 
+                    System.out.println("---");
+                    System.out.println(filename);
+                    System.out.println("---");
 
-                    filename=filename+"H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici";
+                    filename="H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\"+filename;
                     filename=filename.replace('/','\\');
-                    mainulet(filename);
+
+                    String omnigrila = mainulet(filename);
                     System.out.println("Photo saved successfully: " + filename);
 
                     // Send response to indicate successful upload
-                    String response = "Photo uploaded successfully";
+                    /*
+                    String response = "Photo uploaded successfully XMBR AJAX";
                     exchange.sendResponseHeaders(200, response.getBytes().length);
                     OutputStream responseBody = exchange.getResponseBody();
                     responseBody.write(response.getBytes());
                     responseBody.close();
+                    */
+
+                    System.out.println("Raspunsul magic este " + omnigrila);
+                    // Send a custom response header with the message
+                    exchange.getResponseHeaders().set("Raspunsul magic", "omnigrila");
+
+                    // Send a basic response
+                    String response = omnigrila;
+                    exchange.sendResponseHeaders(200, response.length());
+                    OutputStream responseBody = exchange.getResponseBody();
+                    responseBody.write(response.getBytes());
+                    responseBody.close();
+
                     System.out.println("Upload response sent to client");
                 } catch (IOException e) {
                     // Log any exceptions that occur during file writing

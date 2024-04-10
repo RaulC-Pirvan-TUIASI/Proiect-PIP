@@ -25,6 +25,7 @@ public class javaOCR
 
 
             String text;
+
             text = fileToConvert.doOCR(file);
 
             return text;
