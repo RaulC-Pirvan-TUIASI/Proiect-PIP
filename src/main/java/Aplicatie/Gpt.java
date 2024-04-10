@@ -1,3 +1,5 @@
+package Aplicatie;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -34,6 +36,9 @@ public class Gpt {
         return  question;
     }
  */
+
+////
+
     private static HttpResponse request(String question) throws  Exception{
         HttpClient client = HttpClient.newHttpClient();
         String requestBody = new ObjectMapper().writeValueAsString(
@@ -90,3 +95,4 @@ public class Gpt {
         }
     }
 }
+
