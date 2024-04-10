@@ -85,6 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 // Handle server response
                 console.log(data);
+                var uploadSection = document.getElementById('uploadSection');
+                moveUpwards(uploadSection);
+                var chatBox = document.getElementById('chatBox');
+                fadeIn(chatBox);
             })
             .catch(error => {
                 // Handle network errors
@@ -92,6 +96,34 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     });
 
+    function fadeIn(element){
+        element.style.opacity = 0;
+        element.classList.remove('hidden');
+        var opacity = 0;
+        var interval = setInterval(function() {
+            if(opacity>=1){
+                clearInterval(interval);
+            } else{
+                opacity += 0.03;
+                element.style.opacity = opacity;
+            }
+        }, 1);
+    }
+
+    function moveUpwards(element){
+        var marginTop = 200;
+        var marginBottom = -150;
+        var interval = setInterval(function() {
+            if (marginTop <= 70) {
+                clearInterval(interval);
+            } else {
+                marginBottom +=5;
+                marginTop -= 5;
+                element.style.marginTop = marginTop + 'px';
+                element.style.marginBottom = marginBottom + 'px';
+            }
+        }, 5);
+    }
     // Disable message input
     messageInput.disabled = true;
 });
