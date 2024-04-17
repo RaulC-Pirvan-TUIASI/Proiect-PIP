@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     messageInput.disabled = true;
 });
 
+
 function showMessage(message) {
     var answerElement = document.getElementById('answerElement');
     if (answerElement) {

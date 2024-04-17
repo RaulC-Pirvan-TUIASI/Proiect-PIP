@@ -16,6 +16,7 @@ body {
     overflow-x: hidden;
 }
 
+
 header {
     background-color: var(--primary-color);
     color: var(--text-color);
