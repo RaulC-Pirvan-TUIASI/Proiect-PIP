@@ -1,4 +1,6 @@
-import Aplicatie.javaOCR;
+package Scule;
+
+import OCR.javaOCR;
 
 import java.io.File;
 

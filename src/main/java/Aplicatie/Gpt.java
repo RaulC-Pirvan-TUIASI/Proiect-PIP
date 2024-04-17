@@ -8,10 +8,11 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse.BodyHandlers;
 
+import OCR.javaOCR;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper; // You need Jackson to parse the JSON response
-import com.sun.net.httpserver.Request;
+
 
 public class Gpt {
     String answer;
