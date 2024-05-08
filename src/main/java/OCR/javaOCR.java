@@ -7,7 +7,6 @@ package OCR;/*
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import java.io.File;
-import java.util.List;
 
 public class javaOCR
 {
@@ -19,7 +18,8 @@ public class javaOCR
         try {
             // the path of your tess data folder
             // inside the extracted file
-            fileToConvert.setDatapath("H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\Tess4J\\tessdata");
+            fileToConvert.setDatapath("Tess4J\\tessdata");
+            //fileToConvert.setDatapath("H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\Tess4J\\tessdata");
             fileToConvert.setLanguage("eng");
             fileToConvert.setLanguage("ron");
 

@@ -8,6 +8,7 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse.BodyHandlers;
 
+//import OCR.javaOCR;
 import OCR.javaOCR;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -71,7 +72,9 @@ public class Gpt {
     public static String mainulet(String imagine) throws Exception {
         //String calea = "H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici\\grila.png";
         javaOCR ocrProcessor = new javaOCR();
+        System.out.println(imagine);
         String q2=ocrProcessor.performOCR(new File(imagine));
+
 
         //String q="Which is the Capital of Italy?\n" + "\nRome;\nLondon\nBarcelona\nBucharest.\n";
         //String Q2 = createQuestion();
