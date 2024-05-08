@@ -167,7 +167,7 @@ public class Server {
 
 
                 // Generate a unique file name for the uploaded photo
-                String filename = generateUniqueFileName("uploaded_photos", "png");
+                String filename = generateUniqueFileName( "png");
                 //filename="teapa.png";
 
                 try {
@@ -219,7 +219,7 @@ public class Server {
         }
 
         // Generate a unique file name for the uploaded photo
-        private String generateUniqueFileName(String directory, String extension) {
+        private String generateUniqueFileName( String extension) {
             String timestamp = Instant.now().toString().replace(":", "-");
             return UPLOADED_PHOTOS_DIR + "photo_" + timestamp + "." + extension;
         }

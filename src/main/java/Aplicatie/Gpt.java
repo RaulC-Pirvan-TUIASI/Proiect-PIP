@@ -70,7 +70,7 @@ public class Gpt {
         return content(response);
     }
     public static String mainulet(String imagine) throws Exception {
-        //String calea = "H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici\\grila.png";
+        //String calea = "H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici\\grilaCapitale.png";
         javaOCR ocrProcessor = new javaOCR();
         System.out.println(imagine);
         String q2=ocrProcessor.performOCR(new File(imagine));
