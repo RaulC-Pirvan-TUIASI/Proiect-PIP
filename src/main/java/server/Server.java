@@ -3,6 +3,7 @@ package server;
 import com.sun.net.httpserver.*;
 import java.io.*;
 import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Instant;
@@ -43,11 +44,19 @@ public class Server {
         Headers headers = exchange.getResponseHeaders();
         headers.set("Content-Type", getContentType(file));
         exchange.sendResponseHeaders(200, file.length());
-        OutputStream output = exchange.getResponseBody();
-        Files.copy(file.toPath(), output);
-        output.close();
+
+        try (OutputStream output = exchange.getResponseBody();
+             InputStream input = new BufferedInputStream(new FileInputStream(file))) {
+            byte[] buffer = new byte[4096]; // Adjust buffer size as needed
+            int bytesRead;
+            while ((bytesRead = input.read(buffer)) != -1) {
+                output.write(buffer, 0, bytesRead);
+            }
+        }
+
         System.out.println("File sent to client: " + file.getName());
     }
+
 
     /**
      * Sends a 404 (Not Found) response to the client.
@@ -212,7 +221,9 @@ public class Server {
 
                     // Send a basic response
                     String response = omnigrila;
-                    exchange.sendResponseHeaders(200, response.length());
+                    byte[] responseData = response.getBytes(StandardCharsets.UTF_8); // Convert string to byte array using UTF-8 encoding
+                    exchange.sendResponseHeaders(200, responseData.length);
+
                     OutputStream responseBody = exchange.getResponseBody();
                     responseBody.write(response.getBytes());
                     responseBody.close();
@@ -221,6 +232,7 @@ public class Server {
                 } catch (IOException e) {
                     // Log any exceptions that occur during file writing
                     System.err.println("Error saving photo: " + e.getMessage());
+                    e.printStackTrace();
                     serve500(exchange);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
