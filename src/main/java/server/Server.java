@@ -1,7 +1,6 @@
 package server;
 
 import com.sun.net.httpserver.*;
-import Aplicatie.*;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.file.Files;
@@ -180,8 +179,8 @@ public class Server {
                     System.out.println(filename);
                     System.out.println("---");
 
-                    filename="H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\"+filename;
                     filename=filename.replace('/','\\');
+                    System.out.println("ianitn de DEBUG");
 
                     String omnigrila = mainulet(filename);
                     System.out.println("Photo saved successfully: " + filename);
