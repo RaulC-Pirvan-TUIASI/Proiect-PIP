@@ -49,7 +49,19 @@ public class Server {
         System.out.println("File sent to client: " + file.getName());
     }
 
+    /**
+     * Sends a 404 (Not Found) response to the client.
+     * This method sends a 404 response code along with a corresponding message to indicate that the requested resource
+     * was not found. It writes the response to the provided HttpExchange's response body and closes the output stream.
+     * After sending the response, it logs a message indicating that the 404 response was sent to the client.
+     *
+     * @param exchange The HttpExchange object representing the client's request and response context.
+     *                 This object is used to send the 404 response to the client.
+     * @throws IOException If an I/O error occurs while writing the response to the output stream of the HttpExchange.
+     */
+
     static void serve404(HttpExchange exchange) throws IOException {
+
         String response = "404 (Not Found)\n";
         exchange.sendResponseHeaders(404, response.getBytes().length);
         OutputStream output = exchange.getResponseBody();
