@@ -8,8 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Instant;
 
-import static Aplicatie.Gpt.mainulet;
 
+import static aplicatie.Gpt.mainulet;
 public class Server {
 
     private static final String WEB_ROOT = "src/main/resources";

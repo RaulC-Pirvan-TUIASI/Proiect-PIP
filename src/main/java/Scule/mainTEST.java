@@ -11,5 +11,6 @@ public class mainTEST {
         String calea = "H:\\Other computers\\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici\\grilaCapitale.png";
         javaOCR ocrProcessor = new javaOCR();
         System.out.println(ocrProcessor.performOCR(new File(calea)));
+
     }
 }
