@@ -1,4 +1,4 @@
-package Scule;
+package Future;
 
 import OCR.javaOCR;
 
