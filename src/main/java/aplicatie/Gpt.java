@@ -10,6 +10,8 @@ import java.net.http.HttpResponse.BodyHandlers;
 
 //import OCR.javaOCR;
 import OCR.javaOCR;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper; // You need Jackson to parse the JSON response
@@ -43,7 +45,9 @@ public final class Gpt {
     private static HttpResponse request(final String question)
             throws  Exception {
         HttpClient client = HttpClient.newHttpClient();
-        String requestBody = new ObjectMapper().writeValueAsString(
+        ObjectMapper myobj=new ObjectMapper();
+        myobj.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        String requestBody = myobj.writeValueAsString(
                 new ChatGPTRequest("gpt-3.5-turbo",
                         new Message[]{new Message("user", question)})
         );
