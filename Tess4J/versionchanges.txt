@@ -1,7 +1,7 @@
 ﻿﻿Tess4J Change Summary
 
 Version 0.1 - initial release (14 Aug 2010):
-- Java JNA-based wrapper for Tesseract OCR DLL 2.04
+- Java JNA-based wrapper for Tesseract ocr DLL 2.04
 - Support uncompressed, binary TIFF images
 
 Version 0.2 (16 Aug 2010):
@@ -21,7 +21,7 @@ Version 0.4 (1 Nov 2010):
 
 Version 1.0 (30 October 2012):
 - Upgrade to Tesseract 3.02 (r798), which is not backward compatible with Tesseract 2.04. 
-- Implement a new JNA wrapper for the new Tesseract OCR API
+- Implement a new JNA wrapper for the new Tesseract ocr API
 - Add more unit test cases
 - Update documentation
 
@@ -34,7 +34,7 @@ Version 1.1 (3 March 2013)
 
 Version 1.2 (22 September 2013)
 - Update Tesseract DLL to r866
-- More efficient OCR of multiple images
+- More efficient ocr of multiple images
 - Various minor improvements
 - Update JNA to v4.0
 

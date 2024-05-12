@@ -23,7 +23,7 @@ import java.util.List;
 import javax.imageio.IIOImage;
 
 /**
- * An interface represents common OCR methods.
+ * An interface represents common ocr methods.
  */
 public interface ITesseract {
 
@@ -44,7 +44,7 @@ public interface ITesseract {
     }
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param imageFile an image file
      * @return the recognized text
@@ -53,7 +53,7 @@ public interface ITesseract {
     String doOCR(File imageFile) throws TesseractException;
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param imageFile an image file
      * @param rect the bounding rectangle defines the region of the image to be
@@ -65,7 +65,7 @@ public interface ITesseract {
     String doOCR(File imageFile, Rectangle rect) throws TesseractException;
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param bi a buffered image
      * @return the recognized text
@@ -74,7 +74,7 @@ public interface ITesseract {
     String doOCR(BufferedImage bi) throws TesseractException;
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param bi a buffered image
      * @param rect the bounding rectangle defines the region of the image to be
@@ -86,7 +86,7 @@ public interface ITesseract {
     String doOCR(BufferedImage bi, Rectangle rect) throws TesseractException;
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param imageList a list of <code>IIOImage</code> objects
      * @param rect the bounding rectangle defines the region of the image to be
@@ -98,7 +98,7 @@ public interface ITesseract {
     String doOCR(List<IIOImage> imageList, Rectangle rect) throws TesseractException;
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param imageList a list of <code>IIOImage</code> objects
      * @param filename input file name. Needed only for training and reading a
@@ -112,7 +112,7 @@ public interface ITesseract {
     String doOCR(List<IIOImage> imageList, String filename, Rectangle rect) throws TesseractException;
 
     /**
-     * Performs OCR operation. Use <code>SetImage</code>, (optionally)
+     * Performs ocr operation. Use <code>SetImage</code>, (optionally)
      * <code>SetRectangle</code>, and one or more of the <code>Get*Text</code>
      * functions.
      *
@@ -130,7 +130,7 @@ public interface ITesseract {
     String doOCR(int xsize, int ysize, ByteBuffer buf, Rectangle rect, int bpp) throws TesseractException;
 
     /**
-     * Performs OCR operation. Use <code>SetImage</code>, (optionally)
+     * Performs ocr operation. Use <code>SetImage</code>, (optionally)
      * <code>SetRectangle</code>, and one or more of the <code>Get*Text</code>
      * functions.
      *
@@ -157,14 +157,14 @@ public interface ITesseract {
     void setDatapath(String datapath);
 
     /**
-     * Sets language for OCR.
+     * Sets language for ocr.
      *
      * @param language the language code, which follows ISO 639-3 standard.
      */
     void setLanguage(String language);
 
     /**
-     * Sets OCR engine mode.
+     * Sets ocr engine mode.
      *
      * @param ocrEngineMode the OcrEngineMode to set
      */

@@ -39,7 +39,7 @@ import org.slf4j.*;
 /**
  * An object layer on top of <code>TessAPI1</code>, provides character
  * recognition support for common image formats, and multi-page TIFF images
- * beyond the uncompressed, binary TIFF format supported by Tesseract OCR
+ * beyond the uncompressed, binary TIFF format supported by Tesseract ocr
  * engine. The extended capabilities are provided by the
  * <code>Java Advanced Imaging Image I/O Tools</code>.<br>
  * <br>
@@ -98,7 +98,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Sets language for OCR.
+     * Sets language for ocr.
      *
      * @param language the language code, which follows ISO 639-3 standard.
      */
@@ -108,7 +108,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Sets OCR engine mode.
+     * Sets ocr engine mode.
      *
      * @param ocrEngineMode the OcrEngineMode to set
      */
@@ -165,7 +165,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param imageFile an image file
      * @return the recognized text
@@ -177,7 +177,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param imageFile an image file
      * @param rect the bounding rectangle defines the region of the image to be
@@ -197,7 +197,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param bi a buffered image
      * @return the recognized text
@@ -209,7 +209,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param bi a buffered image
      * @param rect the bounding rectangle defines the region of the image to be
@@ -229,7 +229,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param imageList a list of <code>IIOImage</code> objects
      * @param rect the bounding rectangle defines the region of the image to be
@@ -244,7 +244,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Performs OCR operation.
+     * Performs ocr operation.
      *
      * @param imageList a list of <code>IIOImage</code> objects
      * @param filename input file name
@@ -285,7 +285,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Performs OCR operation. Use <code>SetImage</code>, (optionally)
+     * Performs ocr operation. Use <code>SetImage</code>, (optionally)
      * <code>SetRectangle</code>, and one or more of the <code>Get*Text</code>
      * functions.
      *
@@ -306,7 +306,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
     }
 
     /**
-     * Performs OCR operation. Use <code>SetImage</code>, (optionally)
+     * Performs ocr operation. Use <code>SetImage</code>, (optionally)
      * <code>SetRectangle</code>, and one or more of the <code>Get*Text</code>
      * functions.
      *

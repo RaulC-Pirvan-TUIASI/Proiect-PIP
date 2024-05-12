@@ -65,7 +65,7 @@ public class TestFolderExtraction {
             }
 
             /**
-             * Performs OCR on the image.
+             * Performs ocr on the image.
              */
             String result = instance.doOCR(imageFile);
             logger.info(result);

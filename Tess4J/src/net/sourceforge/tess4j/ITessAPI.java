@@ -80,7 +80,7 @@ public interface ITessAPI {
          */
         public static final int PSM_AUTO_OSD = 1;
         /**
-         * Automatic page segmentation, but no OSD, or OCR.
+         * Automatic page segmentation, but no OSD, or ocr.
          */
         public static final int PSM_AUTO_ONLY = 2;
         /**
@@ -374,7 +374,7 @@ public interface ITessAPI {
      * internal <code>PAGE_RES</code>. See <code>apitypes.h</code> for the
      * definition of <code>PageIteratorLevel</code>. See also
      * <code>ResultIterator</code>, derived from <code>PageIterator</code>,
-     * which adds in the ability to access OCR output with text-specific
+     * which adds in the ability to access ocr output with text-specific
      * methods.
      */
     public static class TessPageIterator extends PointerType {
@@ -405,7 +405,7 @@ public interface ITessAPI {
     /**
      * Iterator for tesseract results that is capable of iterating in proper
      * reading order over Bi Directional (e.g. mixed Hebrew and English) text.
-     * ResultIterator adds text-specific methods for access to OCR output.
+     * ResultIterator adds text-specific methods for access to ocr output.
      */
     public static class TessResultIterator extends PointerType {
 
@@ -454,14 +454,14 @@ public interface ITessAPI {
     };
 
     /**
-     * Description of the output of the OCR engine. This structure is used as
+     * Description of the output of the ocr engine. This structure is used as
      * both a progress monitor and the final output header, since it needs to be
-     * a valid progress monitor while the OCR engine is storing its output to
+     * a valid progress monitor while the ocr engine is storing its output to
      * shared memory. During progress, all the buffer info is -1. Progress
-     * starts at 0 and increases to 100 during OCR. No other constraint. Every
-     * progress callback, the OCR engine must set <code>ocr_alive</code> to 1.
+     * starts at 0 and increases to 100 during ocr. No other constraint. Every
+     * progress callback, the ocr engine must set <code>ocr_alive</code> to 1.
      * The HP side will set <code>ocr_alive</code> to 0. Repeated failure to
-     * reset to 1 indicates that the OCR engine is dead. If the cancel function
+     * reset to 1 indicates that the ocr engine is dead. If the cancel function
      * is not null then it is called with the number of user words found. If it
      * returns true then operation is cancelled.
      */

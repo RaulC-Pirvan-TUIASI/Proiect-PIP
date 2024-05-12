@@ -8,8 +8,8 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse.BodyHandlers;
 
-//import OCR.javaOCR;
-import OCR.javaOCR;
+//import ocr.JavaReadTextFromImage;
+import ocr.JavaReadTextFromImage;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -103,9 +103,9 @@ public final class Gpt {
     public static String mainulet(final String imagine) throws Exception {
         //String calea = "H:\\Other computers
         // \\My Laptop\\Javra\\PIPpr\\Proiect-PIP\\pozici\\grilaCapitale.png";
-        javaOCR ocrProcessor = new javaOCR();
+        JavaReadTextFromImage ocrProcessor = new JavaReadTextFromImage();
         System.out.println(imagine);
-        String q2 = ocrProcessor.performOCR(new File(imagine));
+        String q2 = ocrProcessor.performocr(new File(imagine));
 
         return (answer(q2));
     }

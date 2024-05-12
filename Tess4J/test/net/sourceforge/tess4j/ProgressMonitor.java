@@ -55,7 +55,7 @@ class ProgressMonitor extends Thread {
     }
 
     /**
-     * Cancels OCR operation.
+     * Cancels ocr operation.
      */
     public void cancel() {
         monitor.cancel = new ITessAPI.CANCEL_FUNC() {

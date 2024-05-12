@@ -1,12 +1,10 @@
-package OCR;
+package ocr;
 
 import net.sourceforge.tess4j.TesseractException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-
-import static org.junit.Assert.*;
 
 /**
  * The type Java ocr test.
@@ -18,15 +16,15 @@ import static org.junit.Assert.*;
      */
     @Test
     void testPerformOCR() {
-        // Create an instance of the javaOCR class
-        javaOCR ocr = new javaOCR();
+        // Create an instance of the JavaReadTextFromImage class
+        JavaReadTextFromImage ocr = new JavaReadTextFromImage();
 
         // Provide a sample file for testing (replace "path/to/your/file" with the actual file path)
         File file = new File("D:\\Tarzan\\testImages\\grilaCapitale.png");
 
         try {
             // Call the performOCR method and get the result
-            String result = ocr.performOCR(file);
+            String result = ocr.performocr(file);
 
             // Assert that the result is not null or empty
             Assertions.assertNotNull(result);
@@ -40,8 +38,8 @@ import static org.junit.Assert.*;
                     "- Bucuresti\n" +
                     "* Romania\n"));
         } catch (TesseractException e) {
-            // If an exception occurs during OCR, fail the test
-            Assertions.fail("OCR process threw an exception: " + e.getMessage());
+            // If an exception occurs during ocr, fail the test
+            Assertions.fail("ocr process threw an exception: " + e.getMessage());
         }
     }
 }
