@@ -4,14 +4,27 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Directory search.
+ */
 public class DirectorySearch {
     private final String directoryPath;
 
+    /**
+     * Instantiates a new Directory search.
+     *
+     * @param directoryPath the directory path
+     */
     public DirectorySearch(String directoryPath){
         this.directoryPath = directoryPath;
     }
 
-    // Function to list image files (.tif, .jpeg, .jpg, .png, .pdf) in a directory
+    /**
+     * List image files list.
+     *
+     * @return the list
+     */
+// Function to list image files (.tif, .jpeg, .jpg, .png, .pdf) in a directory
     public List<File> listImageFiles() {
         List<File> imageFiles = new ArrayList<>();
         //validate the directory path
@@ -36,6 +49,12 @@ public class DirectorySearch {
         return imageFiles;
     }
 
+    /**
+     * Is image file boolean.
+     *
+     * @param file the file
+     * @return the boolean
+     */
     public boolean isImageFile(File file){
         String fileName = file.getName().toLowerCase();
         return fileName.endsWith(".tif") || fileName.endsWith(".jpeg") ||

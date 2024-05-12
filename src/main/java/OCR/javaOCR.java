@@ -9,10 +9,20 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import java.io.File;
 
+/**
+ * The type Java ocr.
+ */
 public class javaOCR
 {
 
-    // Function to perform OCR on an image or PDF file*/
+    /**
+     * Perform ocr string.
+     *
+     * @param file the file
+     * @return the string
+     * @throws TesseractException the tesseract exception
+     */
+// Function to perform OCR on an image or PDF file*/
     public String performOCR(File file) throws TesseractException
     {
         Tesseract fileToConvert = new Tesseract();
