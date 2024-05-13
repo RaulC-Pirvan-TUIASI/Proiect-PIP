@@ -9,7 +9,7 @@ import java.io.File;
 /**
  * The type Java ocr test.
  */
-        class JavaOCRTest {
+        class JavaReadTextFromImageTest {
 
     /**
      * Test perform ocr.

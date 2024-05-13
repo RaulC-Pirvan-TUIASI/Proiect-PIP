@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * The type Directory search.
  */
-public class DirectorySearch {
+public class SearchImagesInDIrectory {
   private final String directoryPath;
 
   /**
@@ -15,7 +15,7 @@ public class DirectorySearch {
   *
   * @param directoryPath the directory path
   */
-  public DirectorySearch(String directoryPath) {
+  public SearchImagesInDIrectory(String directoryPath) {
     this.directoryPath = directoryPath;
   }
 

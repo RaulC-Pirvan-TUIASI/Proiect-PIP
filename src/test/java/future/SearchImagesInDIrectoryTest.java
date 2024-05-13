@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * The type Directory search test.
  */
-class DirectorySearchTest {
+class SearchImagesInDIrectoryTest {
 
     /**
      * List image files.
@@ -19,9 +19,9 @@ class DirectorySearchTest {
     void listImageFiles() {
         // Provide a valid directory path for testing
         String directoryPath = "D:\\Tarzan\\testImages";
-        DirectorySearch directorySearch = new DirectorySearch(directoryPath);
+        SearchImagesInDIrectory searchImagesInDIrectory = new SearchImagesInDIrectory(directoryPath);
 
-        List<File> imageFiles = directorySearch.listImageFiles();
+        List<File> imageFiles = searchImagesInDIrectory.listImageFiles();
 
         // Assert that the list is not null and not empty
         assertNotNull(imageFiles);
@@ -30,7 +30,7 @@ class DirectorySearchTest {
         // Optionally, you can add more assertions based on your requirements
         // For example, you can assert that all files in the list are valid image files
         for (File file : imageFiles) {
-            assertTrue(directorySearch.isImageFile(file));
+            assertTrue(searchImagesInDIrectory.isImageFile(file));
         }
     }
 
@@ -39,8 +39,8 @@ class DirectorySearchTest {
      */
     @Test
     void isImageFile() {
-        // Create a test instance of the DirectorySearch class
-        DirectorySearch directorySearch = new DirectorySearch("");
+        // Create a test instance of the SearchImagesInDIrectory class
+        SearchImagesInDIrectory searchImagesInDIrectory = new SearchImagesInDIrectory("");
 
         // Create sample files with various extensions
         File tifFile = new File("sample.tif");
@@ -51,14 +51,14 @@ class DirectorySearchTest {
         File txtFile = new File("sample.txt");
 
         // Assert that each file type is recognized as an image file
-        assertTrue(directorySearch.isImageFile(tifFile));
-        assertTrue(directorySearch.isImageFile(jpegFile));
-        assertTrue(directorySearch.isImageFile(jpgFile));
-        assertTrue(directorySearch.isImageFile(pngFile));
-        assertTrue(directorySearch.isImageFile(pdfFile));
+        assertTrue(searchImagesInDIrectory.isImageFile(tifFile));
+        assertTrue(searchImagesInDIrectory.isImageFile(jpegFile));
+        assertTrue(searchImagesInDIrectory.isImageFile(jpgFile));
+        assertTrue(searchImagesInDIrectory.isImageFile(pngFile));
+        assertTrue(searchImagesInDIrectory.isImageFile(pdfFile));
 
         // Assert that a non-image file is not recognized as an image file
-        assertFalse(directorySearch.isImageFile(txtFile));
+        assertFalse(searchImagesInDIrectory.isImageFile(txtFile));
     }
 
 }
