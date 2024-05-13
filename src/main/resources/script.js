@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function showMessage(message) {
-    var answerElement = document.getElementById('answerElement');
+    var answerElement = document.getElementById('messageInput');
     if (answerElement) {
         // Update the answer element with the received message
         answerElement.textContent = message;

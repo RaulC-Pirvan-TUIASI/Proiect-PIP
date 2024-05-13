@@ -165,8 +165,11 @@ input[type="file"] {
     border: none;
     border-radius: 5px;
     margin-top: -10px;
+    font-size: x-large;
     resize: none; /* Disable resizing */
 }
+
+
 
 /* Show the chat box */
 .show-chat {
