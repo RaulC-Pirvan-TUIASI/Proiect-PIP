@@ -45,7 +45,7 @@ public final class Gpt {
     private static HttpResponse request(final String question)
             throws  Exception {
         HttpClient client = HttpClient.newHttpClient();
-        ObjectMapper myobj=new ObjectMapper();
+        ObjectMapper myobj = new ObjectMapper();
         myobj.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         String requestBody = myobj.writeValueAsString(
                 new ChatGPTRequest("gpt-3.5-turbo",
@@ -90,7 +90,8 @@ public final class Gpt {
      * @throws Exception
      */
     public static String answer(final String q) throws Exception {
-        HttpResponse<String> response = request(q);
+        String query=q+"Replay with just the right answer.";
+        HttpResponse<String> response = request(query);
         return content(response);
     }
 
