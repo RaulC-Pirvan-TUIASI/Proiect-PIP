@@ -41,8 +41,15 @@ public final class Gpt {
     }
 
 
-
-    private static HttpResponse request(final String question)
+    /**
+     * This method sets up a connection between the module and the API,
+     * builds a request based on the question
+     * and sends it.
+     * @param question the question.
+     * @return the HttpResponse from the API.
+     * @throws Exception Generic Exception.
+     */
+    private static HttpResponse<String> request(final String question)
             throws  Exception {
         HttpClient client = HttpClient.newHttpClient();
         ObjectMapper myobj = new ObjectMapper();

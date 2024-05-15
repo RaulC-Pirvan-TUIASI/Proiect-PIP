@@ -4,7 +4,7 @@ import ocr.JavaReadTextFromImage;
 
 import java.io.File;
 
-public class mainTEST {
+public class MainTEST {
 
     public static void main(String[] args) throws Exception
     {
