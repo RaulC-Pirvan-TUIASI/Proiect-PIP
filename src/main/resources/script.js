@@ -219,3 +219,7 @@ contactLink.addEventListener('click', () => {
     event.preventDefault();
     scrollToElement('.contact');
 })
+
+function refreshPage() {
+    location.reload();
+}
