@@ -1,4 +1,5 @@
-/* Existing styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
 :root {
     --primary-color: #222831;
     --secondary-color: #31363F;
@@ -6,43 +7,370 @@
     --text-color: #EEEEEE;
 }
 
-body {
-    font-family: Helvetica, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
     display: flex;
-    flex-direction: column; /* Ensure vertical layout */
-    min-height: 100vh; /* Ensure full viewport height */
-    overflow-x: hidden;
-}
-
-
-header {
+    flex-direction: column;
     background-color: var(--primary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-main {
-    flex-grow: 1; /* Grow to fill remaining space */
+
+.header {
+    position: sticky;
+    background-color: var(--primary-color);
+    top: 0;
+    z-index: 1001;
+    display: flex;
+    padding: 20px 50px;
+    margin-bottom: -20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header ul {
+    display: flex;
+    gap: 40px;
+}
+
+.header li {
+    list-style: none;
+}
+
+.header .menu {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.header .menu:hover {
+    color: var(--accent-color);
+}
+
+.header .contact-button {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.header h1 {
+    color: var(--text-color);
+}
+
+.header span {
+    color: var(--accent-color);
+}
+
+.header button {
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px;
+    margin-left: 100px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);;
+}
+
+.header button:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.main {
     text-align: center;
-    font-family: Helvetica, sans-serif;
     margin-top: 50px;
 }
 
-footer {
-    background-color: var(--primary-color);
-    color: var(--text-color);
+.footer {
+    position: static;
+    bottom: 0;
+    right: 0;
     text-align: center;
-    padding: 10px;
-    width: 100%;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    margin: 0 50px;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
 }
 
-/* New styles for file upload section */
+.footer .footer-item {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.team-section {
+    display: flex;
+    margin: 100px 50px;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+.team-section .left-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.team-section .right-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.team-section .card .card-photo img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.team-section .card {
+    background-color: var(--secondary-color);
+    width: 500px;
+    padding: 40px 0px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.team-section .card:hover {
+    background-color: #444b57;
+}
+
+.team-section .card .card-info {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-section .card .card-info h1 {
+    font-size: 42px;
+    margin-bottom: -25px;
+}
+
+.team-section .card .card-info h3 {
+    font-size: 32px;
+}
+
+.team-section .card .card-info h5 {
+    color: var(--accent-color);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.team-section .team-title {
+    font-size: 42px;
+    display: flex;
+    justify-content: center;
+    color: var(--text-color);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info .info-title {
+    display: flex;
+    justify-content: center;
+    font-size: 42px;
+    padding: 40px;
+    color: var(--text-color);
+}
+
+.info .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    margin: 0 50px;
+    padding: 40px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info .card .card-info-items {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.info .card-tehnologies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    margin: 0 50px;
+    padding: 40px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info .card-tehnologies h3 {
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+    color: var(--accent-color);
+}
+
+.info .card-tehnologies p {
+    color: var(--text-color);
+}
+
+.info .card h3 {
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+    color: var(--accent-color);
+}
+
+.info .card p {
+    color: var(--text-color);
+}
+
+.info-content {
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-content-tehnologies {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-content-tehnologies i {
+    font-size: 42px;
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    padding: 10px;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.info-content-tehnologies p {
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.info-content-tehnologies i:hover {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.info-content i {
+    font-size: 42px;
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.info-content i:hover {
+    color: var(--accent-color);
+    background-color: var(--primary-color);
+}
+
+.info .card-items {
+    display: flex;
+}
+
+.card-tehnologies .card-title {
+    margin-bottom: 20px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 50px 50px;
+}
+
+.contact-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-stack-1 {
+    display: flex;
+    gap: 30px;
+}
+
+.contact-stack-2 {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    width: 550px;
+    transition: all 0.3s ease;
+}
+
+.contact-right-item h3 {
+    color: var(--accent-color);
+}
+
+.contact-right-item p {
+    color: var(--text-color);
+}
+
+
+.contact-item:hover {
+    background-color: #444b57;
+}
+
+.contact-right-item {
+    padding: 0 20px;
+}
+
+.contact-title {
+    display: flex;
+    color: var(--text-color);
+    font-size: 42px;
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+.contact-left-item img {
+    height: 80px;
+    border-radius: 50%;
+}
+
 .upload {
     display: flex;
     justify-content: center;
@@ -53,15 +381,13 @@ footer {
 }
 
 .drop-area {
-    border: 2px dashed var(--secondary-color);
-    border-radius: 5px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    cursor: pointer;
     background-color: var(--secondary-color);
     color: var(--text-color);
-    width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: margin-top 0.3s ease;
     margin-top: 50px;
 }
 
@@ -70,7 +396,7 @@ footer {
 }
 
 .drop-area p {
-    margin-top: -5px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
@@ -82,8 +408,14 @@ footer {
     cursor: pointer;
     background-color: var(--accent-color);
     color: var(--text-color);
-    border-radius: 4px;
+    border-radius: 15px;
     width: 150px;
+    transition: all 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: var(--text-color);
+    color: var(--primary-color);
 }
 
 input[type="file"] {
@@ -104,7 +436,7 @@ input[type="file"] {
 
 #imagePreview img {
     max-width: 100%;
-    max-height: 300px;
+    max-height: 200px;
 }
 
 #generate-button {
@@ -112,20 +444,21 @@ input[type="file"] {
     color: var(--text-color);
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     cursor: pointer;
     margin-top: 10px;
     display: block;
     width: 100%;
     font-size: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 #generate-button:hover {
-    background-color: #4C6F72;
+    background-color: var(--text-color);
+    color: var(--primary-color);
 }
 
-/* CSS for the message box */
 .message-box {
     background-color: transparent; /* Set background color to transparent */
     border: none;
@@ -138,16 +471,15 @@ input[type="file"] {
 }
 
 .chat-box {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--text-color);
+    height: 80px;
     padding: 10px;
-    margin-top: 400px; /* Adjust margin-top to push chat box above the footer */
+    margin: 0 40px;
+    margin-top: 300px; /* Adjust margin-top to push chat box above the footer */
     margin-bottom: 20px;
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 800px; /* Adjust width as needed */
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .chat-content {
@@ -158,6 +490,7 @@ input[type="file"] {
 
 .message-input {
     width: calc(100%); /* Adjust width for padding */
+    height: 60px;
     background-color: var(--secondary-color);
     color: var(--text-color);
     padding: 10px;
@@ -165,7 +498,7 @@ input[type="file"] {
     border: none;
     border-radius: 5px;
     margin-top: -10px;
-    font-size: x-large;
+    font-size: 16px;
     resize: none; /* Disable resizing */
 }
 
@@ -175,4 +508,19 @@ input[type="file"] {
 .show-chat {
     max-height: calc(100vh - 420px); /* Adjust the maximum height as needed */
     overflow-y: auto; /* Add scrollbar when content exceeds max height */
+}
+
+.reset-button i {
+    font-size: 36px;
+    padding: 8px;
+    background-color: var(--text-color);
+    color: var(--primary-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.reset-button i:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
 }
