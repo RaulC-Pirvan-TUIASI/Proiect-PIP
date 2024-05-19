@@ -39,7 +39,7 @@ public class Server {
             String requestMethod = exchange.getRequestMethod();
             if (requestMethod.equalsIgnoreCase("GET")) {
                 String uri = exchange.getRequestURI().toString();
-                uri = uri.replace('/', '\\');
+                //uri = uri.replace('/', '\\');
                 System.out.println(uri + " <<<ce avem noi aici");
                 String filePath = WEB_ROOT + uri;
                 File file = new File(filePath);
