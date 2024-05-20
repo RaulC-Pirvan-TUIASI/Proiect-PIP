@@ -7,6 +7,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.util.Arrays;
 
 //import ocr.JavaReadTextFromImage;
 import ocr.JavaReadTextFromImage;
@@ -20,9 +21,9 @@ import com.fasterxml.jackson.databind.ObjectMapper; // You need Jackson to parse
 public final class Gpt {
 
     /**
-    API_Key: this string is composed by api key segments put in such a way
-    that OpenAi won't revoke the key after a push on a remote.
-    */
+     * API_Key: this string is composed by api key segments put in such a way
+     * that OpenAi won't revoke the key after a push on a remote.
+     */
     private static final String API_KEY = "sk-tHiQn"
             + "PJDdUOc"
             + "J9qRxoxbT"
@@ -30,8 +31,8 @@ public final class Gpt {
             + "buZvmcFftZ1KBoO";
 
     /**
-    API_URL: thi string contains the url used to connect to the OpenAI API.
-    */
+     * API_URL: thi string contains the url used to connect to the OpenAI API.
+     */
     private static final String API_URL =
             "https://api.openai.com/v1/chat/completions";
 
@@ -45,12 +46,13 @@ public final class Gpt {
      * This method sets up a connection between the module and the API,
      * builds a request based on the question
      * and sends it.
+     *
      * @param question the question.
      * @return the HttpResponse from the API.
      * @throws Exception Generic Exception.
      */
     private static HttpResponse<String> request(final String question)
-            throws  Exception {
+            throws Exception {
         HttpClient client = HttpClient.newHttpClient();
         ObjectMapper myobj = new ObjectMapper();
         myobj.setVisibility(PropertyAccessor.FIELD,
@@ -67,15 +69,14 @@ public final class Gpt {
                 .header("Authorization", "Bearer " + API_KEY)
                 .POST(BodyPublishers.ofString(requestBody))
                 .build();
-        return  client.send(request, BodyHandlers.ofString());
+        return client.send(request, BodyHandlers.ofString());
     }
 
     /**
-     *
-     * @param response
+     * @param response JSON Node trimis de ChatGpt
      * @return This returns the answer
-     *         to the inputted question extracted from the JSON Node
-     * @throws JsonProcessingException
+     * to the inputted question extracted from the JSON Node
+     * @throws JsonProcessingException Erore la extragerea contentului di JSON
      */
     private static String content(final HttpResponse<String> response)
             throws JsonProcessingException {
@@ -92,10 +93,9 @@ public final class Gpt {
     }
 
     /**
-     *
-     * @param q
+     * @param q Grila primisa sub forma unui string
      * @return Final answer to our question under the form of a string
-     * @throws Exception
+     * @throws Exception Ecceptia generala
      */
     public static String answer(final String q) throws Exception {
         String query = q + "Replay with just the right answer.";
@@ -104,10 +104,9 @@ public final class Gpt {
     }
 
     /**
-     *
-     * @param imagine
+     * @param imagine imaginea care contine grila
      * @return Placeholder
-     * @throws Exception
+     * @throws Exception Ecceptia generala
      */
     public static String mainulet(final String imagine) throws Exception {
         //String calea = "H:\\Other computers
@@ -115,26 +114,50 @@ public final class Gpt {
         JavaReadTextFromImage ocrProcessor = new JavaReadTextFromImage();
         System.out.println(imagine);
         String q2 = ocrProcessor.performocr(new File(imagine));
-
+        erorfix();
         return (answer(q2));
     }
+
+    public static void erorfix() {
+        Message[] B={new Message("user", "question")};
+        B[0].afisare();
+        ChatGPTRequest A = new ChatGPTRequest("", B);
+        A.afisare();
+
+    }
+
     // Inner class for the request body
     private static class ChatGPTRequest {
 
         /**
          *
          */
-        private String model;
+        private final String model;
 
         /**
          *
          */
-        private Message[] messages;
+        private final Message[] messages;
 
         ChatGPTRequest(final String mod, final Message[] mess) {
             this.model = mod;
             this.messages = mess;
         }
+
+
+        public Message[] getMessages() {
+            return messages;
+        }
+
+        public String getModel() {
+            return model;
+        }
+
+        public void afisare() {
+            System.out.println(this.getModel());
+            System.out.println(Arrays.toString(this.getMessages()));
+        }
+
     }
 
     // Inner class for messages, now including role
@@ -142,16 +165,30 @@ public final class Gpt {
         /**
          * Role is who sends the request to the API.
          */
-        private String role;
+        private final String role;
 
         /**
          * The content is the question sent to the API.
          */
-        private String content;
+        private final String content;
 
         Message(final String r, final String c) {
             this.role = r;
             this.content = c;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public String getRole() {
+            return role;
+        }
+
+        public void afisare() {
+            System.out.println(this.getContent());
+            System.out.println(this.getRole());
+
         }
     }
 }
