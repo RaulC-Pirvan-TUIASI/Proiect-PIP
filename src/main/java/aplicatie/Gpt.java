@@ -118,11 +118,14 @@ public final class Gpt {
         return (answer(q2));
     }
 
+    /**
+     * Functie creata cu scopul de eliminare warnings.
+     */
     public static void erorfix() {
-        Message[] B={new Message("user", "question")};
-        B[0].afisare();
-        ChatGPTRequest A = new ChatGPTRequest("", B);
-        A.afisare();
+        Message[] b = {new Message("user", "question")};
+        b[0].afisare();
+        ChatGPTRequest a = new ChatGPTRequest("", b);
+        a.afisare();
 
     }
 
