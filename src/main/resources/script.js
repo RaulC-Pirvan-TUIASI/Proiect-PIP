@@ -223,3 +223,5 @@ contactLink.addEventListener('click', () => {
 function refreshPage() {
     location.reload();
 }
+
+console.log("Current window width:", window.innerWidth);
