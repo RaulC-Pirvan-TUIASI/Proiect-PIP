@@ -32,11 +32,13 @@ import java.io.File;
 
             // Optionally, you can add additional assertions based on your requirements
             // For example, you can assert that the result contains specific text that you expect
-            Assertions.assertTrue(result.contains("|Care este capitala ltaliei ?\n" +
-                    "* Roma\n" +
-                    "* Milano\n" +
-                    "- Bucuresti\n" +
-                    "* Romania\n"));
+            Assertions.assertTrue(result.contains("""
+                    |Care este capitala ltaliei ?
+                    * Roma
+                    * Milano
+                    - Bucuresti
+                    * Romania
+                    """));
         } catch (TesseractException e) {
             // If an exception occurs during ocr, fail the test
             Assertions.fail("ocr process threw an exception: " + e.getMessage());

@@ -130,10 +130,8 @@ public class Server {
                 Headers headers = exchange.getRequestHeaders();
                 String contentType = headers.getFirst("Content-Type");
                 String[] parts = contentType.split(";");
-                String boundary = "";
                 for (String part : parts) {
                     if (part.trim().startsWith("boundary=")) {
-                        boundary = part.split("=")[1];
                         break;
                     }
                 }
@@ -155,7 +153,7 @@ public class Server {
                 data = removeHeaders(data);
 
                 // Generate a unique file name for the uploaded photo
-                String filename = generateUniqueFileName("png");
+                String filename = generateUniqueFileName();
 
                 try {
                     // Write the received data to the specified file
@@ -171,12 +169,11 @@ public class Server {
                     exchange.getResponseHeaders().set("Raspunsul magic", "omnigrila");
 
                     // Send a basic response
-                    String response = omnigrila;
-                    byte[] responseData = response.getBytes(StandardCharsets.UTF_8);
+                    byte[] responseData = omnigrila.getBytes(StandardCharsets.UTF_8);
                     exchange.sendResponseHeaders(200, responseData.length);
 
                     OutputStream responseBody = exchange.getResponseBody();
-                    responseBody.write(response.getBytes());
+                    responseBody.write(omnigrila.getBytes());
                     responseBody.close();
 
                     System.out.println("Upload response sent to client");
@@ -196,12 +193,11 @@ public class Server {
         /**
          * Generate a unique file name for the uploaded photo.
          *
-         * @param extension The file extension for the uploaded photo.
          * @return The generated unique file name.
          */
-        private String generateUniqueFileName(String extension) {
+        private String generateUniqueFileName() {
             String timestamp = Instant.now().toString().replace(":", "-");
-            return UPLOADED_PHOTOS_DIR + "photo_" + timestamp + "." + extension;
+            return UPLOADED_PHOTOS_DIR + "photo_" + timestamp + "." + "png";
         }
     }
 
