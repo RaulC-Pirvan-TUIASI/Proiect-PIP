@@ -67,7 +67,8 @@ public class Server {
     static void serveFile(HttpExchange exchange, File file) throws IOException {
         Headers headers = exchange.getResponseHeaders();
         headers.set("Content-Type", getContentType(file));
-        exchange.sendResponseHeaders(200, file.length());
+        final int cod = 200;
+        exchange.sendResponseHeaders(cod, file.length());
         try (OutputStream output = exchange.getResponseBody();
              InputStream input = new BufferedInputStream(new FileInputStream(file))) {
             byte[] buffer = new byte[4096];
@@ -119,7 +120,6 @@ public class Server {
     static class UploadHandler implements HttpHandler {
         /**
          * Handles HTTP POST requests by processing uploaded files.
-         *
          * @param exchange The HttpExchange object representing the client's request and response context.
          * @throws IOException If an I/O error occurs while processing the uploaded file or sending the response.
          */
@@ -216,7 +216,8 @@ public class Server {
         int headerEndIndex = findHeaderEndIndex(data);
 
         // If headerEndIndex is -1, indicating the header end sequence wasn't found, return the original data
-        if (headerEndIndex == -1) {
+        if (headerEndIndex == -1)
+        {
             return data;
         }
 
