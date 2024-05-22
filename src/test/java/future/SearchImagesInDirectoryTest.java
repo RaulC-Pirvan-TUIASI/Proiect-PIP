@@ -1,16 +1,18 @@
 package future;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testng.Assert.assertFalse;
 
 /**
  * The type Directory search test.
  */
-class SearchImagesInDIrectoryTest {
+class SearchImagesInDirectoryTest {
 
     /**
      * List image files.
@@ -19,16 +21,19 @@ class SearchImagesInDIrectoryTest {
     void listImageFiles() {
         // Provide a valid directory path for testing
         String directoryPath = "D:\\Tarzan\\testImages";
-        SearchImagesInDIrectory searchImagesInDIrectory = new SearchImagesInDIrectory(directoryPath);
+        SearchImagesInDirectory searchImagesInDIrectory;
+        searchImagesInDIrectory = new SearchImagesInDirectory(directoryPath);
 
         List<File> imageFiles = searchImagesInDIrectory.listImageFiles();
 
         // Assert that the list is not null and not empty
-        assertNotNull(imageFiles);
+        Assertions.assertNotNull(imageFiles);
         assertFalse(imageFiles.isEmpty());
 
-        // Optionally, you can add more assertions based on your requirements
-        // For example, you can assert that all files in the list are valid image files
+        // Optionally, you can add more
+        // assertions based on your requirements
+        // For example, you can assert that all files
+        // in the list are valid image files
         for (File file : imageFiles) {
             assertTrue(searchImagesInDIrectory.isImageFile(file));
         }
@@ -39,8 +44,9 @@ class SearchImagesInDIrectoryTest {
      */
     @Test
     void isImageFile() {
-        // Create a test instance of the SearchImagesInDIrectory class
-        SearchImagesInDIrectory searchImagesInDIrectory = new SearchImagesInDIrectory("");
+        // Create a test instance of the SearchImagesInDirectory class
+        SearchImagesInDirectory searchImagesInDIrectory;
+        searchImagesInDIrectory = new SearchImagesInDirectory("");
 
         // Create sample files with various extensions
         File tifFile = new File("sample.tif");

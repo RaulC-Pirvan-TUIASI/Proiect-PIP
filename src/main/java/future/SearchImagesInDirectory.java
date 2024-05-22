@@ -7,23 +7,32 @@ import java.util.List;
 /**
  * The type Directory search.
  */
-public class SearchImagesInDIrectory {
+public class SearchImagesInDirectory {
+  /**
+  * The path to the directory that this instance will operate on.
+  * <p>
+  * This field is a final String, meaning its value is set once upon
+  * initialization and cannot be changed thereafter. It is used to specify
+  * the directory path that the instance will use for various operations such
+  * as reading from or writing to files within that directory.
+  * </p>
+  */
   private final String directoryPath;
 
   /**
-  * Instantiates a new Directory search.
-  *
-  * @param directoryPath the directory path
-  */
-  public SearchImagesInDIrectory(String directoryPath) {
-    this.directoryPath = directoryPath;
+   * Instantiates a new Directory search.
+   *
+   * @param directorPath the directory path
+   */
+  public SearchImagesInDirectory(final String directorPath) {
+    this.directoryPath = directorPath;
   }
 
   /**
-  * List image files list.
-  *
-  * @return the list
-  **/
+   * List image files list.
+   *
+   * @return the list
+   */
   // Function to list image files (.tif, .jpeg, .jpg, .png, .pdf) in a directory
   public List<File> listImageFiles() {
     List<File> imageFiles = new ArrayList<>();
@@ -50,12 +59,12 @@ public class SearchImagesInDIrectory {
   }
 
   /**
-  * Is image file boolean.
-  *
-  * @param file the file
-  * @return the boolean
-  */
-  public boolean isImageFile(File file) {
+   * Is image file boolean.
+   *
+   * @param file the file
+   * @return the boolean
+   */
+  public boolean isImageFile(final File file) {
     String fileName = file.getName().toLowerCase();
     return fileName.endsWith(".tif") || fileName.endsWith(".jpeg")
             || fileName.endsWith(".jpg") || fileName.endsWith(".png")
