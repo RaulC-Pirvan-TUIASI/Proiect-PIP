@@ -21,8 +21,8 @@ public class JavaReadTextFromImage {
    * @return the string
    * @throws TesseractException the tesseract exception
    */
-// Function to perform ocr on an image or PDF file*/
-  public String performocr(File file) throws TesseractException {
+  // Function to perform ocr on an image or PDF file*/
+  public String performocr(final File file) throws TesseractException {
     Tesseract fileToConvert = new Tesseract();
     try {
       // the path of your tess data folde

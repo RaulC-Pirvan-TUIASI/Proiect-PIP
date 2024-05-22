@@ -19,7 +19,8 @@ import java.io.File;
         // Create an instance of the JavaReadTextFromImage class
         JavaReadTextFromImage ocr = new JavaReadTextFromImage();
 
-        // Provide a sample file for testing (replace "path/to/your/file" with the actual file path)
+        // Provide a sample file for testing
+        // (replace "path/to/your/file" with the actual file path)
         File file = new File("D:\\Tarzan\\testImages\\grilaCapitale.png");
 
         try {
@@ -30,8 +31,10 @@ import java.io.File;
             Assertions.assertNotNull(result);
             Assertions.assertFalse(result.isEmpty());
 
-            // Optionally, you can add additional assertions based on your requirements
-            // For example, you can assert that the result contains specific text that you expect
+            // Optionally, you can add additional assertions
+            // based on your requirements
+            // For example, you can assert that the result
+            // contains specific text that you expect
             Assertions.assertTrue(result.contains("""
                     |Care este capitala ltaliei ?
                     * Roma
@@ -41,7 +44,8 @@ import java.io.File;
                     """));
         } catch (TesseractException e) {
             // If an exception occurs during ocr, fail the test
-            Assertions.fail("ocr process threw an exception: " + e.getMessage());
+            Assertions.fail("ocr process threw an exception: "
+                    + e.getMessage());
         }
     }
 }
