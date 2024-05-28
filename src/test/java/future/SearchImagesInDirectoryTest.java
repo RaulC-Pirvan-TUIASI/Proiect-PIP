@@ -12,16 +12,7 @@ import static org.testng.Assert.assertFalse;
 /**
  * The type Directory search test.
  */
-final class SearchImagesInDirectoryTest {
-
-    /**
-     * Default constructor for SearchImagesInDirectoryTest class.
-     * This constructor is provided for documentation purposes and
-     * to comply with the code quality guidelines.
-     */
-    private SearchImagesInDirectoryTest() {
-        // Default constructor
-    }
+class SearchImagesInDirectoryTest {
 
     /**
      * List image files.
@@ -29,7 +20,7 @@ final class SearchImagesInDirectoryTest {
     @Test
     void listImageFiles() {
         // Provide a valid directory path for testing
-        String directoryPath = "D:\\Tarzan\\testImages";
+        String directoryPath = "D:\\PIP_22.20_28.05\\testImages";
         SearchImagesInDirectory searchImagesInDIrectory;
         searchImagesInDIrectory = new SearchImagesInDirectory(directoryPath);
 

@@ -9,16 +9,7 @@ import java.io.File;
 /**
  * The type Java ocr test.
  */
-        final class JavaReadTextFromImageTest {
-
-    /**
-     * Default constructor for JavaReadTextFromImageTest class.
-     * This constructor is provided for documentation purposes and
-     * to comply with the code quality guidelines.
-     */
-    private JavaReadTextFromImageTest() {
-        // Default constructor
-    }
+        class JavaReadTextFromImageTest {
 
     /**
      * Test perform ocr.
@@ -30,7 +21,8 @@ import java.io.File;
 
         // Provide a sample file for testing
         // (replace "path/to/your/file" with the actual file path)
-        File file = new File("D:\\Tarzan\\testImages\\grilaCapitale.png");
+        File file;
+        file = new File("D:\\PIP_22.20_28.05\\testImages\\grilaCapitale.png");
 
         try {
             // Call the performOCR method and get the result
