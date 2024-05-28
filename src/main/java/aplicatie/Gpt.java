@@ -22,14 +22,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public final class Gpt {
 
     /**
-     * secret discret
+     * secret discret.
      */
     private static final
-    String API_KEY = "sk-FVdJuqB"
-        + "zgWkMBxJelHw"
-        + " ZT3BlbkFJgS"
-        + " CeLCJxiim0Z"
-        + " aibq9RZ";
+    String API_KEY = "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";
+
 
 
     /**
