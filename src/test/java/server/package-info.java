@@ -2,7 +2,7 @@
  * This package contains classes and
  * functionalities related to server operations.
  * <p>
- * The main class in this package is {@link server/Server},
+ * The main class in this package is server/Server,
  * which provides various methods for server-related tasks
  * such as determining the content type of files.
  * The package also includes test classes
@@ -25,7 +25,5 @@
  * </pre>
  *
  * @since 1.0
- * @see server/Server
- * @see server/ServerTest
  */
 package server;

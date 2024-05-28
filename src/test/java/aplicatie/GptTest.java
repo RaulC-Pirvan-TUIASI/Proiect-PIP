@@ -4,8 +4,25 @@ import org.testng.annotations.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * GPT test class contains unit tests for the Gpt application.
+ */
 public class GptTest {
 
+    /**
+     * Default constructor for GptTest.
+     * This constructor is provided for documentation purposes and
+     * to comply with the code quality guidelines.
+     */
+    public GptTest() {
+        // Default constructor
+    }
+
+    /**
+     * Test for the answer method in the Gpt class.
+     *
+     * @throws Exception if the answer method throws an exception
+     */
     @Test
     void testanswer() throws Exception {
         // Test pentru functia answer
@@ -33,14 +50,17 @@ public class GptTest {
                 *Milan
                 """;
         assertEquals("Venice", Gpt.answer(q));
-
     }
+
+    /**
+     * Test for the mainulet method in the Gpt class.
+     *
+     * @throws Exception if the mainulet method throws an exception
+     */
     @Test
     void testmaingpt() throws Exception {
         // Test pentru mainulet
         assertEquals("Roma", Gpt.mainulet("testImages/grilaCapitale.png"));
         assertEquals("Adevarat", Gpt.mainulet("testImages/MT.png"));
-
     }
-
 }

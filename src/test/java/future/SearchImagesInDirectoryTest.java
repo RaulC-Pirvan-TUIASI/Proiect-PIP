@@ -15,6 +15,15 @@ import static org.testng.Assert.assertFalse;
 class SearchImagesInDirectoryTest {
 
     /**
+     * Default constructor for SearchImagesInDirectoryTest class.
+     * This constructor is provided for documentation purposes and
+     * to comply with the code quality guidelines.
+     */
+    public SearchImagesInDirectoryTest() {
+        // Default constructor
+    }
+
+    /**
      * List image files.
      */
     @Test

@@ -12,6 +12,15 @@ import java.io.File;
         class JavaReadTextFromImageTest {
 
     /**
+     * Default constructor for JavaReadTextFromImageTest class.
+     * This constructor is provided for documentation purposes and
+     * to comply with the code quality guidelines.
+     */
+    public JavaReadTextFromImageTest() {
+        // Default constructor
+    }
+
+    /**
      * Test perform ocr.
      */
     @Test

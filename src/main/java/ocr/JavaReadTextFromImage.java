@@ -1,10 +1,10 @@
 package ocr;
 
 /*
-* Maftei Marius-Vasile
-* 09.04.2024
-* Proiect PIP
-*/
+ * Maftei Marius-Vasile
+ * 09.04.2024
+ * Proiect PIP
+ */
 
 import java.io.File;
 import net.sourceforge.tess4j.Tesseract;
@@ -14,15 +14,27 @@ import net.sourceforge.tess4j.TesseractException;
  * The type Java ocr.
  */
 public class JavaReadTextFromImage {
+
+
   /**
-   * Perform ocr string.
-   *
-   * @param file the file
-   * @return the string
-   * @throws TesseractException the tesseract exception
+   * Default constructor for JavaReadTextFromImage class.
+   * This constructor is provided for documentation purposes and
+   * to comply with the code quality guidelines.
    */
-  // Function to perform ocr on an image or PDF file*/
+  public JavaReadTextFromImage() {
+    // Default constructor
+  }
+
+  /**
+   * Performs OCR (Optical Character Recognition) on an image or PDF file.
+   *
+   * @param file the image or PDF file to perform OCR on
+   * @return the extracted text from the file, or "eroare" if an error occurs
+   * @throws TesseractException if an error occurs during OCR processing
+   */
   public String performocr(final File file) throws TesseractException {
+
+
     Tesseract fileToConvert = new Tesseract();
     try {
       // the path of your tess data folde
@@ -43,4 +55,3 @@ public class JavaReadTextFromImage {
     return "eroare";
   }
 }
-

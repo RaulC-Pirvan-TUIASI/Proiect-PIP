@@ -28,4 +28,4 @@
  *
  * @since 1.0
  */
-package future;
+package Future;

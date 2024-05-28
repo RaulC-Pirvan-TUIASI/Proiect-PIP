@@ -4,8 +4,22 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * This class contains tests for the Server class, specifically for the getContentType method.
+ */
 public class ServerTest {
 
+    /**
+     * Default constructor for the ServerTest class.
+     * This constructor is provided for documentation purposes.
+     */
+    public ServerTest() {
+        // Default constructor
+    }
+
+    /**
+     * Tests the getContentType method of the Server class with various file types.
+     */
     @Test
     void testGetContentType() {
         // Test for HTML file
