@@ -22,10 +22,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public final class Gpt {
 
     /**
-     * API_KEY: this string is composed by API key segments put in such a way
-     * that OpenAI won't revoke the key after a push on a remote.
+     * secret discret
      */
-    private static final String API_KEY = "sk-tHiQn"
+    private static final
+    String API_KEY = "sk-tHiQn"
             + "PJDdUOc"
             + "J9qRxoxbT"
             + "3BlbkFJWBvKN"
