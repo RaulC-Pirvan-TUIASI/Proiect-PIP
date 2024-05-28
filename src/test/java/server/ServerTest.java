@@ -5,7 +5,8 @@ import java.io.File;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * This class contains tests for the Server class, specifically for the getContentType method.
+ * This class contains tests for the Server class,
+ * specifically for the getContentType method.
  */
 public class ServerTest {
 
@@ -18,7 +19,8 @@ public class ServerTest {
     }
 
     /**
-     * Tests the getContentType method of the Server class with various file types.
+     * Tests the getContentType method of
+     * the Server class with various file types.
      */
     @Test
     void testGetContentType() {

@@ -34,7 +34,8 @@ public final class Gpt {
     /**
      * API_URL: this string contains the URL used to connect to the OpenAI API.
      */
-    private static final String API_URL = "https://api.openai.com/v1/chat/completions";
+    private static final String API_URL =
+            "https://api.openai.com/v1/chat/completions";
 
     /**
      * not instanstable
@@ -44,17 +45,21 @@ public final class Gpt {
     }
 
     /**
-     * Sets up a connection between the module and the API, builds a request based on the question,
+     * Sets up a connection between the module and the API,
+     * builds a request based on the question,
      * and sends it.
      *
      * @param question the question to ask the API.
      * @return the HttpResponse from the API.
-     * @throws Exception if an error occurs during the request.
+     * @throws Exception if an error occurs
+     * during the request.
      */
-    private static HttpResponse<String> request(final String question) throws Exception {
+    private static HttpResponse<String> request(final String question)
+            throws Exception {
         HttpClient client = HttpClient.newHttpClient();
         ObjectMapper myobj = new ObjectMapper();
-        myobj.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        myobj.setVisibility(PropertyAccessor.FIELD,
+                JsonAutoDetect.Visibility.ANY);
         String requestBody = myobj.writeValueAsString(
                 new ChatGPTRequest("gpt-3.5-turbo",
                         new Message[]{new Message("user", question)})
@@ -74,10 +79,13 @@ public final class Gpt {
      * Extracts the content from the JSON response.
      *
      * @param response JSON Node sent by ChatGPT.
-     * @return the answer to the inputted question extracted from the JSON Node.
-     * @throws JsonProcessingException if there is an error processing the JSON.
+     * @return the answer to the inputted question
+     * extracted from the JSON Node.
+     * @throws JsonProcessingException if there is
+     * an error processing the JSON.
      */
-    private static String content(final HttpResponse<String> response) throws JsonProcessingException {
+    private static String content(final HttpResponse<String> response)
+            throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.readTree(response.body());
         JsonNode contentNode = rootNode
