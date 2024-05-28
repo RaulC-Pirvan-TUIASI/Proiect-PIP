@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integrare OpenAI</title>
-
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/830/PNG/64/android-brain_icon-icons.com_66654.png">
 </head>
 <body>
-<header>
-    <h1>Integrare OpenAI</h1>
-</header>
 
-<main>
-    <!-- Drag and Drop File Upload Section -->
+<div class="header">
+    <h1>Integrare <span>OpenAI</span></h1>
+    <ul>
+        <li id="homeLink"><a href="#" class="menu">Acasa</a></li>
+        <li id="teamLink"><a href="#" class="menu">Echipa</a></li>
+        <li id="infoLink"><a href="#" class="menu">Informatii</a></li>
+    </ul>
+    <button id="contactLink"><a href="#" class="contact-button">Contacteaza-ne</a></button>
+</div>
+
+<div class="main">
     <section class="upload" id="uploadSection">
         <div class="drop-area" id="dropArea">
             <h2 id="dropAreaText">Drag & Drop Files Here</h2>
@@ -28,22 +34,196 @@
                 <button id="generate-button">Generate</button>
             </div>
         </div>
-        
     </section>
     <div id="messageBox" class="upload-box" contenteditable="false"></div>
     <div id="chatBox" class="chat-box">
-        <!-- Leave uncomented
-        <p id="answerElement">Answer shows up here</p>
-        -->
         <div id="chatContent" class="chat-content"></div>
-        <textarea id="messageInput" class="message-input" placeholder="What can I help you with today?"></textarea>
+        <textarea id="messageInput" class="message-input" placeholder="How can I help you today?"></textarea>
     </div>
-</main>
-<footer>
-    <p>&copy; <span id="currentYear"></span> Integrare OpenAI. Toate drepturile sunt rezervate.</p>
-    <p>Proiect realizat de Coșa Andrei-Valeriu, Maftei Marius-Vasile, Valazza Matteo, Mîrț Davide și Pîrvan Raul-Costin</p>
-    <p>Grupa 1301B</p>
-</footer>
+    <div class="reset-button" onclick="refreshPage()">
+        <i class='bx bx-refresh'></i>
+    </div>
+</div>
+
+<div class="team-section">
+    <h1 class="team-title">Echipa</h1>
+    <div class="team-stack">
+        <div class="left-section">
+            <div class="card">
+                <div class="card-photo">
+                    <img src="profile/Raul.jpg">
+                </div>
+                <div class="card-info">
+                    <h1>Raul-Costin</h1>
+                    <h3>Pirvan</h3>
+                    <h5>Fullstack Developer</h5>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-photo">
+                    <img src="profile/Andrei.jpg">
+                </div>
+                <div class="card-info">
+                    <h1>Andrei-Valeriu</h1>
+                    <h3>Cosa</h3>
+                    <h5>Team Leader</h5>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-photo">
+                    <img src="profile/Marius.jpg">
+                </div>
+                <div class="card-info">
+                    <h1>Marius-Vasile</h1>
+                    <h3>Maftei</h3>
+                    <h5>OCR Developer</h5>
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="card">
+                <div class="card-photo">
+                    <img src="profile/Matteo.jpg">
+                </div>
+                <div class="card-info">
+                    <h1>Matteo</h1>
+                    <h3>Valazza</h3>
+                    <h5>AI Developer</h5>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-photo">
+                    <img src="profile/ChatGPT_logo.svg.png">
+                </div>
+                <div class="card-info">
+                    <h1>ChatGPT</h1>
+                    <h3>OpenAI</h3>
+                    <h5>God</h5>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-photo">
+                    <img src="profile/Davide.jpg">
+                </div>
+                <div class="card-info">
+                    <h1>Davide</h1>
+                    <h3>Mirt</h3>
+                    <h5>AI Developer</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="info">
+    <h1 class="info-title">Informatii</h1>
+    <div class="card">
+        <h3 class="card-title">Scop</h3>
+        <div class="card-info-items">
+            <div class="info-content">
+                <i class='bx bxl-graphql'></i>
+                <p>Integrarea noilor tehnologii intr-un singur proiect, punand astfel accent pe eficienta si performante sporite.</p>
+            </div>
+            <div class="info-content">
+                <i class='bx bxs-upvote'></i>
+                <p>Productivitate cu pana la 300% mai mare datorita posibilitatii de a incarca o imagine direct in ChatGPT 4.0!</p>
+            </div>
+            <div class="info-content">
+                <i class='bx bxs-devices'></i>
+                <p>Portabilitate la cote inalte! Echipa noastra de Developeri a configurat aceasta platforma incat sa fie compatibila pe orice dispozitiv!</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-tehnologies">
+        <h3 class="card-title">Tehnologii</h3>
+        <div class="card-items">
+            <div class="info-content-tehnologies">
+                <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank"><i class='bx bxl-java' ></i></a>
+                <p>Java</p>
+            </div>
+            <div class="info-content-tehnologies">
+                <a href="https://en.wikipedia.org/wiki/HTML5" target="_blank"><i class='bx bxl-html5'></i></a>
+                <p>HTML5</p>
+            </div>
+            <div class="info-content-tehnologies">
+                <a href="https://en.wikipedia.org/wiki/CSS" target="_blank"><i class='bx bxl-css3' ></i></a>
+                <p>CSS3</p>
+            </div>
+            <div class="info-content-tehnologies">
+                <a href="https://en.wikipedia.org/wiki/Tesseract_(software)" target="_blank"><i class='bx bx-image-alt' ></i></a>
+                <p>Tesseract</p>
+            </div>
+            <div class="info-content-tehnologies">
+                <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" target="_blank"><i class='bx bx-brain' ></i></a>
+                <p>AI</p>
+            </div>
+            <div class="info-content-tehnologies">
+                <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank"><i class='bx bxl-javascript' ></i></a>
+                <p>JavaScript</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact">
+    <h1 class="contact-title">For Business Inquires</h1>
+    <div class="contact-stack">
+        <div class="contact-stack-1">
+            <div class="contact-item">
+                <div class="contact-left-item">
+                    <img src="profile/Raul.jpg">
+                </div>
+                <div class="contact-right-item">
+                    <h3 class="contact-name">Raul-Costin Pirvan</h3>
+                    <p class="contact-adress">Raul-Costin.Pirvan@student.tuiasi.ro</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-left-item">
+                    <img src="profile/Andrei.jpg">
+                </div>
+                <div class="contact-right-item">
+                    <h3 class="contact-name">Andrei-Valeriu Cosa</h3>
+                    <p class="contact-adress">Andrei-Valeriu.Cosa@student.tuiasi.ro</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-left-item">
+                    <img src="profile/Marius.jpg">
+                </div>
+                <div class="contact-right-item">
+                    <h3 class="contact-name">Marius-Vasile Maftei</h3>
+                    <p class="contact-adress">Marius-Vasile.Maftei@student.tuiasi.ro</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-stack-2">
+            <div class="contact-item">
+                <div class="contact-left-item">
+                    <img src="profile/Matteo.jpg">
+                </div>
+                <div class="contact-right-item">
+                    <h3 class="contact-name">Matteo Valazza</h3>
+                    <p class="contact-adress">Matteo.Valazza@student.tuiasi.ro</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-left-item">
+                    <img src="profile/Davide.jpg">
+                </div>
+                <div class="contact-right-item">
+                    <h3 class="contact-name">Davide Mirt</h3>
+                    <p class="contact-adress">Davide.Mirt@student.tuiasi.ro</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p class="footer-item">&copy; <span id="currentYear" class="footer-item"></span> Integrare OpenAI. Toate drepturile sunt rezervate.</p>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>

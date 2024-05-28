@@ -187,3 +187,41 @@ function showMessage(message) {
         console.error('Answer element not found');
     }
 }
+
+function scrollToElement(elementSelector, instance = 0) {
+    const elements = document.querySelectorAll(elementSelector);
+    if(elements.length > instance) {
+        elements[instance].scrollIntoView({behavior: 'smooth'});
+    } 
+}
+
+const homeLink = document.getElementById("homeLink");
+const teamLink = document.getElementById("teamLink");
+const infoLink = document.getElementById("infoLink");
+const contactLink = document.getElementById("contactLink");
+
+homeLink.addEventListener('click', () => {
+    event.preventDefault();
+    scrollToElement('.main');
+})
+
+teamLink.addEventListener('click', () => {
+    event.preventDefault();
+    scrollToElement('.team-section');
+})
+
+infoLink.addEventListener('click', () => {
+    event.preventDefault();
+    scrollToElement('.info');
+})
+
+contactLink.addEventListener('click', () => {
+    event.preventDefault();
+    scrollToElement('.contact');
+})
+
+function refreshPage() {
+    location.reload();
+}
+
+console.log("Current window width:", window.innerWidth);
