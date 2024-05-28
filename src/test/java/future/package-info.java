@@ -2,7 +2,7 @@
  * This package contains classes related to file
  * searching and filtering functionalities.
  * <p>
- * The main class in this package is {@link ocr/SearchImagesInDirectory}
+ * The main class in this package is  ocr/SearchImagesInDirectory
  * which provides methods to search and
  * list image files within a specified directory.
  * The package also includes test classes
@@ -27,7 +27,5 @@
  * </pre>
  *
  * @since 1.0
- * @see future//SearchImagesInDirectory
- * @see future/SearchImagesInDirectoryTest
  */
 package future;

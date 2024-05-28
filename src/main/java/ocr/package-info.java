@@ -8,7 +8,6 @@
  *     - Oferă metode pentru extragerea textului
  *     din fișiere imagine folosind Tesseract OCR.</li>
  * </ul>
- * </p>
  *
  * @since 1.0
  * @author Maftei Marius-Vasile
