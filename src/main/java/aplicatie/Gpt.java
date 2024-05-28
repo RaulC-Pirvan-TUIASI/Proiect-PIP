@@ -38,7 +38,7 @@ public final class Gpt {
             "https://api.openai.com/v1/chat/completions";
 
     /**
-     * not instanstable
+     * not instanstable.
      */
     private Gpt() {
         // Private constructor to prevent instantiation

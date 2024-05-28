@@ -74,21 +74,23 @@ public final class Server {
     /**
      * The RootHandler class handles GET requests for serving static files.
      */
-    static class RootHandler implements HttpHandler {
+    static final class RootHandler implements HttpHandler {
 
         /**
          * Default constructor for the RootHandler class.
          * This constructor is provided for documentation purposes.
          */
-        public RootHandler() {
+        private RootHandler() {
             // Default constructor
         }
 
         /**
          * Handles HTTP GET requests by serving static files.
          *
-         * @param exchange The HttpExchange object representing the client's request and response context.
-         * @throws IOException If an I/O error occurs while serving the static file or writing the response.
+         * @param exchange The HttpExchange object representing the client's re
+         *                 quest and response context.
+         * @throws IOException If an I/O error occurs while serving the static
+         * file or writing the response.
          */
         @Override
         public void handle(final HttpExchange exchange) throws IOException {
@@ -107,25 +109,32 @@ public final class Server {
                     serve404(exchange);
                 }
             } else {
-                System.out.println("Unsupported request method: " + requestMethod);
+                System.out.println("Unsupported request method: "
+                         + requestMethod);
                 serve404(exchange);
             }
         }
     }
 
     /**
-     * Sends the specified file as a response to the client.
+     * Sends the specified file as a response
+     * to the client.
      *
-     * @param exchange The HttpExchange object representing the client's request and response context.
+     * @param exchange The HttpExchange object representing
+     *                 the client's request and
+     *                 response context.
      * @param file The file to be sent to the client.
-     * @throws IOException If an I/O error occurs while sending the file.
+     * @throws IOException If an I/O error occurs
+     * while sending the file.
      */
-    static void serveFile(final HttpExchange exchange, final File file) throws IOException {
+    static void serveFile(final HttpExchange exchange,
+                          final File file) throws IOException {
         Headers headers = exchange.getResponseHeaders();
         headers.set("Content-Type", getContentType(file));
         exchange.sendResponseHeaders(HTTP_OK, file.length());
         try (OutputStream output = exchange.getResponseBody();
-             InputStream input = new BufferedInputStream(new FileInputStream(file))) {
+             InputStream input = new BufferedInputStream(
+                     new FileInputStream(file))) {
             byte[] buffer = new byte[BUFFER_SIZE];
             int bytesRead;
             while ((bytesRead = input.read(buffer)) != -1) {
@@ -138,12 +147,15 @@ public final class Server {
     /**
      * Sends a 404 (Not Found) response to the client.
      *
-     * @param exchange The HttpExchange object representing the client's request and response context.
-     * @throws IOException If an I/O error occurs while sending the response.
+     * @param exchange The HttpExchange object representing
+     *                 the client's request and response context.
+     * @throws IOException If an I/O error occurs while
+     * sending the response.
      */
     static void serve404(final HttpExchange exchange) throws IOException {
         String response = "404 (Not Found)\n";
-        exchange.sendResponseHeaders(HTTP_NOT_FOUND, response.getBytes().length);
+        exchange.sendResponseHeaders(HTTP_NOT_FOUND,
+                response.getBytes().length);
         OutputStream output = exchange.getResponseBody();
         output.write(response.getBytes());
         output.close();
@@ -151,15 +163,18 @@ public final class Server {
     }
 
     /**
-     * Determines the content type of the specified file based on its extension.
+     * Determines the content type of the specified file
+     * based on its extension.
      *
-     * @param file The file for which to determine the content type.
+     * @param file The file for which to determine the
+     *             content type.
      * @return The content type of the file.
      */
     static String getContentType(final File file) {
         String contentType = "text/plain";
         String fileName = file.getName();
-        if (fileName.endsWith(".html") || fileName.endsWith(".htm") || fileName.startsWith("index")) {
+        if (fileName.endsWith(".html") || fileName.endsWith(".htm")
+                || fileName.startsWith("index")) {
             contentType = "text/html";
         } else if (fileName.endsWith(".css")) {
             contentType = "text/css";
@@ -174,21 +189,27 @@ public final class Server {
     /**
      * The UploadHandler class handles POST requests for uploading files.
      */
-    static class UploadHandler implements HttpHandler {
+    static final class UploadHandler implements HttpHandler {
 
         /**
          * Default constructor for the UploadHandler class.
          * This constructor is provided for documentation purposes.
          */
-        public UploadHandler() {
+        private UploadHandler() {
             // Default constructor
         }
 
         /**
-         * Handles HTTP POST requests by processing uploaded files.
+         * Handles HTTP POST requests by
+         * processing uploaded files.
          *
-         * @param exchange The HttpExchange object representing the client's request and response context.
-         * @throws IOException If an I/O error occurs while processing the uploaded file or sending the response.
+         * @param exchange The HttpExchange object
+         *                representing
+         *                 the client's request and
+         *                 response context.
+         * @throws IOException If an I/O error occurs
+         * while processing the uploaded file
+         * or sending the response.
          */
         @Override
         public void handle(final HttpExchange exchange) throws IOException {
@@ -203,15 +224,18 @@ public final class Server {
                 }
 
                 InputStream inputStream = exchange.getRequestBody();
-                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                ByteArrayOutputStream outputStream = new
+                        ByteArrayOutputStream();
                 byte[] buffer = new byte[BUFFER_SIZE];
                 int bytesRead;
-                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                while ((bytesRead = inputStream
+                        .read(buffer)) != -1) {
                     outputStream.write(buffer, 0, bytesRead);
                 }
 
                 byte[] data = outputStream.toByteArray();
-                System.out.println("Received data length: " + data.length);
+                System.out.println("Received data length: "
+                        + data.length);
                 data = removeHeaders(data);
 
                 String filename = generateUniqueFileName();
@@ -223,12 +247,16 @@ public final class Server {
                     System.out.println("ianitn de DEBUG");
 
                     String omnigrila = mainulet(filename);
-                    System.out.println("Photo saved successfully: " + filename);
+                    System.out.println("Photo saved successfully: "
+                            + filename);
 
-                    exchange.getResponseHeaders().set("Raspunsul magic", "omnigrila");
+                    exchange.getResponseHeaders().set("Raspunsul magic",
+                            "omnigrila");
 
-                    byte[] responseData = omnigrila.getBytes(StandardCharsets.UTF_8);
-                    exchange.sendResponseHeaders(HTTP_OK, responseData.length);
+                    byte[] responseData = omnigrila.
+                            getBytes(StandardCharsets.UTF_8);
+                    exchange.sendResponseHeaders(HTTP_OK,
+                            responseData.length);
 
                     OutputStream responseBody = exchange.getResponseBody();
                     responseBody.write(omnigrila.getBytes());
@@ -248,7 +276,8 @@ public final class Server {
         }
 
         /**
-         * Generate a unique file name for the uploaded photo.
+         * Generate a unique file name for
+         * the uploaded photo.
          *
          * @return The generated unique file name.
          */
@@ -261,8 +290,10 @@ public final class Server {
     /**
      * Removes HTTP headers from the byte array.
      *
-     * @param data The byte array containing HTTP headers and content.
-     * @return The byte array with HTTP headers removed.
+     * @param data The byte array containing
+     *             HTTP headers and content.
+     * @return The byte array with HTTP
+     * headers removed.
      */
     static byte[] removeHeaders(final byte[] data) {
         int headerEndIndex = findHeaderEndIndex(data);
@@ -271,15 +302,19 @@ public final class Server {
             return data;
         }
 
-        int contentLength = data.length - (headerEndIndex + HEADER_END_LENGTH);
+        int contentLength = data.length - (headerEndIndex
+                + HEADER_END_LENGTH);
         byte[] content = new byte[contentLength];
 
-        System.arraycopy(data, headerEndIndex + HEADER_END_LENGTH, content, 0, contentLength);
+        System.arraycopy(data, headerEndIndex
+                + HEADER_END_LENGTH, content, 0,
+                contentLength);
 
         int endHeaderIndex = findEndHeaderIndex(content);
         if (endHeaderIndex != -1) {
             byte[] trimmedContent = new byte[endHeaderIndex];
-            System.arraycopy(content, 0, trimmedContent, 0, endHeaderIndex);
+            System.arraycopy(content, 0, trimmedContent, 0,
+                    endHeaderIndex);
             return trimmedContent;
         }
 
@@ -287,14 +322,18 @@ public final class Server {
     }
 
     /**
-     * Finds the index where the HTTP header ends in the byte array.
+     * Finds the index where the HTTP header
+     * ends in the byte array.
      *
-     * @param data The byte array containing HTTP headers and content.
-     * @return The index where the HTTP header ends, or -1 if the end sequence wasn't found.
+     * @param data The byte array containing HTTP
+     *             headers and content.
+     * @return The index where the HTTP header ends,
+     * or -1 if the end sequence wasn't found.
      */
     static int findHeaderEndIndex(final byte[] data) {
         for (int i = 0; i < data.length - BOUNDARY_END_LENGTH; i++) {
-            if (data[i] == '\r' && data[i + 1] == '\n' && data[i + 2] == '\r' && data[i + BOUNDARY_END_LENGTH] == '\n') {
+            if (data[i] == '\r' && data[i + 1] == '\n' && data[i + 2] == '\r'
+                    && data[i + BOUNDARY_END_LENGTH] == '\n') {
                 return i;
             }
         }
@@ -302,14 +341,17 @@ public final class Server {
     }
 
     /**
-     * Finds the index where the ending header starts in the byte array.
+     * Finds the index where the ending header
+     * starts in the byte array.
      *
      * @param data The byte array containing HTTP content.
-     * @return The index where the ending header starts, or -1 if the sequence wasn't found.
+     * @return The index where the ending header
+     * starts, or -1 if the sequence wasn't found.
      */
     static int findEndHeaderIndex(final byte[] data) {
         for (int i = 0; i < data.length - BOUNDARY_END_LENGTH; i++) {
-            if (data[i] == CR && data[i + 1] == LF && data[i + 2] == HYPHEN && data[i + BOUNDARY_END_LENGTH] == HYPHEN) {
+            if (data[i] == CR && data[i + 1] == LF && data[i + 2]
+                    == HYPHEN && data[i + BOUNDARY_END_LENGTH] == HYPHEN) {
                 return i;
             }
         }
@@ -319,12 +361,15 @@ public final class Server {
     /**
      * Sends a 500 (Internal Server Error) response to the client.
      *
-     * @param exchange The HttpExchange object representing the client's request and response context.
-     * @throws IOException If an I/O error occurs while sending the response.
+     * @param exchange The HttpExchange object representing
+     *                 the client's request and response context.
+     * @throws IOException If an I/O error occurs while
+     * sending the response.
      */
     static void serve500(final HttpExchange exchange) throws IOException {
         String response = "500 (Internal Server Error)\n";
-        exchange.sendResponseHeaders(HTTP_INTERNAL_ERROR, response.getBytes().length);
+        exchange.sendResponseHeaders(HTTP_INTERNAL_ERROR,
+                response.getBytes().length);
         OutputStream output = exchange.getResponseBody();
         output.write(response.getBytes());
         output.close();
@@ -332,7 +377,8 @@ public final class Server {
     }
 
     /**
-     * The main method starts the HTTP server on the specified port and creates handlers for requests.
+     * The main method starts the HTTP server on the specified port and creates
+     * handlers for requests.
      *
      * @param args Command-line arguments.
      * @throws Exception If an error occurs while starting the server.

@@ -12,14 +12,14 @@ import static org.testng.Assert.assertFalse;
 /**
  * The type Directory search test.
  */
-class SearchImagesInDirectoryTest {
+final class SearchImagesInDirectoryTest {
 
     /**
      * Default constructor for SearchImagesInDirectoryTest class.
      * This constructor is provided for documentation purposes and
      * to comply with the code quality guidelines.
      */
-    public SearchImagesInDirectoryTest() {
+    private SearchImagesInDirectoryTest() {
         // Default constructor
     }
 
