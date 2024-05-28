@@ -25,11 +25,12 @@ public final class Gpt {
      * secret discret
      */
     private static final
-    String API_KEY = "sk-tHiQn"
-            + "PJDdUOc"
-            + "J9qRxoxbT"
-            + "3BlbkFJWBvKN"
-            + "buZvmcFftZ1KBoO";
+    String API_KEY = "sk-FVdJuqB"
+        + "zgWkMBxJelHw"
+        + " ZT3BlbkFJgS"
+        + " CeLCJxiim0Z"
+        + " aibq9RZ";
+
 
     /**
      * API_URL: this string contains the URL used to connect to the OpenAI API.
@@ -107,7 +108,10 @@ public final class Gpt {
      */
     public static String answer(final String q) throws Exception {
         String query = q + " Reply with just the right answer.";
+        //here
         HttpResponse<String> response = request(query);
+        System.out.println(response);
+        //here
         return content(response);
     }
 
@@ -119,8 +123,9 @@ public final class Gpt {
      * @throws Exception if an error occurs during the process.
      */
     public static String mainulet(final String imagine) throws Exception {
+
+
         JavaReadTextFromImage ocrProcessor = new JavaReadTextFromImage();
-        System.out.println(imagine);
         String q2 = ocrProcessor.performocr(new File(imagine));
         erorfix();
         return (answer(q2));

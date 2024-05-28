@@ -244,9 +244,12 @@ public final class Server {
                     Files.write(Paths.get(filename), data);
 
                     filename = filename.replace('/', '\\');
-                    System.out.println("ianitn de DEBUG");
 
+                    System.out.println("inainte de 401");
                     String omnigrila = mainulet(filename);
+                    System.out.println("inainte de OMNI");
+                    System.out.println(omnigrila);
+                    System.out.println("dupa OMNI");
                     System.out.println("Photo saved successfully: "
                             + filename);
 
@@ -257,6 +260,7 @@ public final class Server {
                             getBytes(StandardCharsets.UTF_8);
                     exchange.sendResponseHeaders(HTTP_OK,
                             responseData.length);
+
 
                     OutputStream responseBody = exchange.getResponseBody();
                     responseBody.write(omnigrila.getBytes());
