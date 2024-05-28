@@ -12,7 +12,8 @@ public class ServerTest {
 
     /**
      * Default constructor for the ServerTest class.
-     * This constructor is provided for documentation purposes.
+     * This constructor is provided for
+     * documentation purposes.
      */
     public ServerTest() {
         // Default constructor
@@ -20,7 +21,8 @@ public class ServerTest {
 
     /**
      * Tests the getContentType method of
-     * the Server class with various file types.
+     * the Server class with various
+     * file types.
      */
     @Test
     void testGetContentType() {

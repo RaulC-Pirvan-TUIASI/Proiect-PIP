@@ -9,14 +9,14 @@ import java.io.File;
 /**
  * The type Java ocr test.
  */
-        class JavaReadTextFromImageTest {
+        final class JavaReadTextFromImageTest {
 
     /**
      * Default constructor for JavaReadTextFromImageTest class.
      * This constructor is provided for documentation purposes and
      * to comply with the code quality guidelines.
      */
-    public JavaReadTextFromImageTest() {
+    private JavaReadTextFromImageTest() {
         // Default constructor
     }
 

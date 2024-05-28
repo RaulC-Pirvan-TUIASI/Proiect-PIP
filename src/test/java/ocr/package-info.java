@@ -31,4 +31,4 @@
  * @author Maftei Marius-Vasile
  * @version 1.0
  */
-package OCR;
+package ocr;
