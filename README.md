@@ -25,13 +25,13 @@ Navigate to the project directory:
 Compile the project using Maven:
 
 Copiază codul
-    ```bash
-    mvn compile
+   ```bash
+   mvn compile
     Run the server:
 
 ## Copiază codul
-    ```bash
-    mvn exec:java -Dexec.mainClass="server.Server"
+   ```bash
+   mvn exec:java -Dexec.mainClass="server.Server"
 
 ## Endpoints
 GET /: Serves static files from the src/main/resources directory.
