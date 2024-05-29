@@ -19,18 +19,18 @@ The `Server` class implements a simple HTTP server that serves static files and 
    ```bash
    git clone <repository_url>
    ```
-Navigate to the project directory:
+2. Navigate to the project directory:
 
    ```bash
    cd <project_directory>
    ```
-Compile the project using Maven:
+3. Compile the project using Maven:
 
    ```bash
    mvn compile
    ```
 
-Run the server:
+4. Run the server:
    ```bash
    mvn exec:java -Dexec.mainClass="server.Server"
    ```
