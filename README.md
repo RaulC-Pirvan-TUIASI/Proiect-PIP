@@ -18,20 +18,22 @@ The `Server` class implements a simple HTTP server that serves static files and 
 
    ```bash
    git clone <repository_url>
+   ```
 Navigate to the project directory:
 
-    ```bash
-    cd <project_directory>
+   ```bash
+   cd <project_directory>
+   ```
 Compile the project using Maven:
 
-Copiază codul
    ```bash
    mvn compile
-    Run the server:
+   ```
 
-## Copiază codul
+Run the server:
    ```bash
    mvn exec:java -Dexec.mainClass="server.Server"
+   ```
 
 ## Endpoints
 GET /: Serves static files from the src/main/resources directory.
